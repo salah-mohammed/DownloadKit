@@ -19,6 +19,7 @@
 		4E23682B2503C0BA00977D7F /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368282503C0BA00977D7F /* DownloadService.swift */; };
 		4E2368302503C15E00977D7F /* TestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E23682F2503C15D00977D7F /* TestClass.swift */; };
 		4E2368322503C1F200977D7F /* LocalFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368312503C1F200977D7F /* LocalFileViewController.swift */; };
+		4E2368362503C5F000977D7F /* LibararyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368352503C5F000977D7F /* LibararyExtension.swift */; };
 		A575CD73483512E895D710A4 /* Pods_DownloadKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA161898AFC94A2185FB408 /* Pods_DownloadKitExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		4E23682D2503C0D600977D7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E23682F2503C15D00977D7F /* TestClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestClass.swift; sourceTree = "<group>"; };
 		4E2368312503C1F200977D7F /* LocalFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileViewController.swift; sourceTree = "<group>"; };
+		4E2368352503C5F000977D7F /* LibararyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibararyExtension.swift; sourceTree = "<group>"; };
 		7142B5A6BE37FFA2735A28B4 /* Pods-DownloadKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownloadKitExample.release.xcconfig"; path = "Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		F3ACD8EA72B2CE060B76E217 /* Pods-DownloadKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownloadKitExample.debug.xcconfig"; path = "Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				4E2368062503C03100977D7F /* DownloadKit.h */,
+				4E2368352503C5F000977D7F /* LibararyExtension.swift */,
 				4E2368272503C0BA00977D7F /* DownloadManager.swift */,
 				4E2368282503C0BA00977D7F /* DownloadService.swift */,
 				4E2368262503C0BA00977D7F /* FileDownloadService.swift */,
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E2368362503C5F000977D7F /* LibararyExtension.swift in Sources */,
 				4E2368302503C15E00977D7F /* TestClass.swift in Sources */,
 				4E2368292503C0BA00977D7F /* FileDownloadService.swift in Sources */,
 				4E23682A2503C0BA00977D7F /* DownloadManager.swift in Sources */,
