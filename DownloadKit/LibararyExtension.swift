@@ -69,7 +69,6 @@ extension PHPhotoLibrary {
         }
         return download
     }
-
     
     class func le_checkPhotoLibraryAuthorization(authorized:(()->Void)?,unAuthorized:(()->Void)?){
         let status = PHPhotoLibrary.authorizationStatus()
