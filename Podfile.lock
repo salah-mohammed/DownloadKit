@@ -1,0 +1,21 @@
+PODS:
+  - DownloadKit (0.0.1)
+
+DEPENDENCIES:
+  - DownloadKit (from `https://github.com/salah-mohammed/DownloadKit.git`)
+
+EXTERNAL SOURCES:
+  DownloadKit:
+    :git: https://github.com/salah-mohammed/DownloadKit.git
+
+CHECKOUT OPTIONS:
+  DownloadKit:
+    :commit: 0da8f59168c451367532f2a4cd119325457c3569
+    :git: https://github.com/salah-mohammed/DownloadKit.git
+
+SPEC CHECKSUMS:
+  DownloadKit: c52c4d99c41c2e1877fa326e68fd93967515173b
+
+PODFILE CHECKSUM: 3ba8cd569dacb2a0150b9dc60b5748b18a67ffc4
+
+COCOAPODS: 1.9.1
