@@ -173,11 +173,8 @@ open class FileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDe
         if let tempLocalFolderUrl:URL=tempLocalFolderUrl,
             let tempLocalFilename:String=tempLocalFilename,
             let fileType:String=fileType{
-            if let fileURL:URL = tempLocalFolderUrl.appendingPathComponent(tempLocalFilename).appendingPathExtension("\(fileType)"){
-                return fileURL;
-            }else{
-                return nil;
-            }
+             let fileURL:URL = tempLocalFolderUrl.appendingPathComponent(tempLocalFilename).appendingPathExtension("\(fileType)")
+             return fileURL;
         }else{
             return nil;
         }
