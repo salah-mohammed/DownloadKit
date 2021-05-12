@@ -12,7 +12,7 @@ open class DownloadManager: NSObject {
     open var items:[FileDownloadService]=[FileDownloadService]();
     public static let sharedInstance: DownloadManager = { DownloadManager()} ()
 
-    override init() {
+    public override init() {
         super.init()
        
     }
