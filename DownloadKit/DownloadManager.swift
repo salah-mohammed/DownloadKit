@@ -23,7 +23,7 @@ open class DownloadManager: NSObject {
             }
         }
     }
-    open func addfileService(_ url:URL?,folderName:String,fileType:String,localefileName:String){
+    open func addfileService(_ url:URL?,folderName:String,fileType:String,localefileName:String)->FileDownloadService?{
         if let url :URL = url{
             var fileDownloadService:FileDownloadService? = DownloadManager.sharedInstance.items.first(where: { (item) -> Bool in
                 return item.url==url
@@ -35,7 +35,9 @@ open class DownloadManager: NSObject {
             fileDownloadService?.folderName = folderName
             fileDownloadService?.fileType=fileType;
             fileDownloadService?.localefileName=localefileName;
+            return fileDownloadService;
         }
+        return nil;
     }
     open func fileService(_ url:URL?)->FileDownloadService?{
         if let url :URL = url{
