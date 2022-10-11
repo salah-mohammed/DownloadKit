@@ -14,9 +14,7 @@ extension Notification.Name {
     static let DidFinishDownloadingWithError = Notification.Name("DidFinishDownloadingWithError")
 
 }
-
-
-open class FileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDelegate {
+open class BaseFileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDelegate {
     public enum ThreadType{
        case background
        case main
@@ -40,11 +38,15 @@ open class FileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDe
     public typealias DidReceive = (()->Void)
     public typealias DidFinishDownloadingWithError = ((Error?)->Void)
 
-    var autoSave:Bool=true;
+    open var autoSave:Bool=true;
     open var totalBytesWritten:Int64=0;
     open var totalBytesExpectedToWrite:Int64=0;
     open var percentageDownloaded:Float{
         return  Float(totalBytesWritten) / Float(totalBytesExpectedToWrite);
+    }
+    open var localFileUrl:URL?
+    func internalLocalFileUrl()->URL?{
+        return self.localFileUrl
     }
     open var didReceive:DidReceive?
     open var didFinishDownloadingTo:DidFinishDownloadingTo?
@@ -53,7 +55,7 @@ open class FileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDe
         if self.autoSave {
         do {
             let manager = FileManager.default
-            if let localFile:URL = self.localFileUrl{
+            if let localFile:URL = self.internalLocalFileUrl(){
                 _ = try? manager.removeItem(at: localFile)
                  try manager.moveItem(at: location, to: localFile)    // move new one there
             }else{
@@ -109,17 +111,7 @@ open class FileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDe
     open var state: URLSessionTask.State?{
         return self.dataTask?.state ?? nil;
     }
-   open var localFileUrl:URL?{
-    if let url:URL = self.url{
-        return self.genrateLocalFile(remoteFile:url);
-    }else{
-        self.didFinishDownloadingWithError?(FileDownloadServiceError.remoteFileUrlNil);
-        return nil;
-    }
-    }
-   open var folderName:String="Downloads"
-   open var fileType:String?;
-   open var localefileName:String?
+
 
     public  init(url: URL,_ threadType:ThreadType = .main) {
     super.init()
@@ -148,7 +140,7 @@ open class FileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDe
         self.dataTask?.suspend();
     }
     open func writeFile(data:Data,url:URL){
-        if let fileURL:URL = self.genrateLocalFile(remoteFile:url){
+        if let fileURL:URL = self.localFileUrl{
             do {
              try data.write(to: fileURL)
             }catch(_){
@@ -165,20 +157,7 @@ open class FileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDe
     public func build(url:URL){
         dataTask = session?.downloadTask(with: NSURLRequest(url: url) as URLRequest);
     }
-    open func genrateLocalFile(remoteFile:URL)->URL?{
-         let tempLocalFolderUrl:URL? = URL.createFolder(folderName:"\(folderName)")
-        //  for get file name from self.localefileName or get file name from remote url
-        //https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4 -> video_test
-        var tempLocalFilename = self.localefileName == nil ? (((remoteFile.lastPathComponent) as NSString).deletingPathExtension as String) : self.localefileName
-        if let tempLocalFolderUrl:URL=tempLocalFolderUrl,
-            let tempLocalFilename:String=tempLocalFilename,
-            let fileType:String=fileType{
-             let fileURL:URL = tempLocalFolderUrl.appendingPathComponent(tempLocalFilename).appendingPathExtension("\(fileType)")
-             return fileURL;
-        }else{
-            return nil;
-        }
-    }
+
     @discardableResult open func didReceive(didReceive:DidReceive?) -> Self {
         self.didReceive=didReceive;
         return self;
@@ -206,7 +185,56 @@ open class FileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDe
         NotificationCenter.default.removeObserver(self, name: .DidFinishDownloadingWithError, object: nil);
     }
 }
-extension FileDownloadService {
+open class FileDownloadService: BaseFileDownloadService{
+    public enum LocalFile{
+     case url(URL)
+     case downloads(folderName:String?="Downloads",localefileName:String,fileType:String)
+    }
+    public var localFile:LocalFile?
+   override func internalLocalFileUrl()->URL?{
+        if let url:URL = self.url{
+            switch self.localFile{
+            case .url(let url):
+                return url
+            case .downloads(folderName:let folderName,localefileName: let localefileName, fileType: let fileType):
+                return self.genrateLocalFile(remoteFile:url,folderName,fileType,localefileName);
+            default:
+                self.didFinishDownloadingWithError?(FileDownloadServiceError.localFileUrlNil);
+            }
+            
+        }
+       self.didFinishDownloadingWithError?(FileDownloadServiceError.remoteFileUrlNil);
+       return nil;
+    }
+
+    
+    open func genrateLocalFile(remoteFile:URL,_ folderName:String?,_ fileType:String?,_ localefileName:String?)->URL?{
+         let tempLocalFolderUrl:URL? = URL.createFolder(folderName:"\(folderName)")
+        //  for get file name from self.localefileName or get file name from remote url
+        //https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4 -> video_test
+        var tempLocalFilename = localefileName == nil ? (((remoteFile.lastPathComponent) as NSString).deletingPathExtension as String) : localefileName
+        if let tempLocalFolderUrl:URL=tempLocalFolderUrl,
+            let tempLocalFilename:String=tempLocalFilename,
+            let fileType:String=fileType{
+             let fileURL:URL = tempLocalFolderUrl.appendingPathComponent(tempLocalFilename).appendingPathExtension("\(fileType)")
+             return fileURL;
+        }else{
+            return nil;
+        }
+    }
+    open override func writeFile(data:Data,url:URL){
+        if let fileURL:URL = self.internalLocalFileUrl(){
+            do {
+             try data.write(to: fileURL)
+            }catch(_){
+                didFinishDownloadingWithError?(FileDownloadServiceError.writeFileError)
+            }
+        }else{
+            self.didFinishDownloadingWithError?(FileDownloadServiceError.localFileUrlNil);
+        }
+    }
+}
+extension BaseFileDownloadService {
     func reStart(){
         self.build(url: self.url!)
         self.resume();

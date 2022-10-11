@@ -32,9 +32,7 @@ open class DownloadManager: NSObject {
                 fileDownloadService = FileDownloadService.init(url: url,.background);
             DownloadManager.sharedInstance.items.append(fileDownloadService!);
             }
-            fileDownloadService?.folderName = folderName
-            fileDownloadService?.fileType=fileType;
-            fileDownloadService?.localefileName=localefileName;
+            fileDownloadService?.localFile = .downloads(folderName:folderName,localefileName: localefileName, fileType: fileType)
             return fileDownloadService;
         }
         return nil;

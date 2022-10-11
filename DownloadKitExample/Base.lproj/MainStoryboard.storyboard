@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dt8-JG-dQT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dt8-JG-dQT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,37 +26,41 @@
             </objects>
             <point key="canvasLocation" x="28" y="-716"/>
         </scene>
-        <!--remote file-->
+        <!--Download Service-->
         <scene sceneID="CJI-Xo-moG">
             <objects>
-                <viewController id="iJX-MP-UQK" customClass="ViewController" customModule="AssetManagerExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iJX-MP-UQK" customClass="ViewController" customModule="DownloadKitExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LBy-8y-uVR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFU-zn-d9r">
-                                <rect key="frame" x="60" y="433" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFU-zn-d9r">
+                                <rect key="frame" x="60" y="423" width="60" height="50"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="btnStart:" destination="iJX-MP-UQK" eventType="touchUpInside" id="GM5-9O-F1N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWW-FW-zZP">
-                                <rect key="frame" x="60" y="533" width="32" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWW-FW-zZP">
+                                <rect key="frame" x="60" y="543" width="60" height="50"/>
                                 <state key="normal" title="Stop"/>
                                 <connections>
                                     <action selector="btnStop:" destination="iJX-MP-UQK" eventType="touchUpInside" id="ihI-wi-hej"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6H-5X-7p0">
-                                <rect key="frame" x="322" y="533" width="42" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6H-5X-7p0">
+                                <rect key="frame" x="304" y="543" width="60" height="50"/>
                                 <state key="normal" title="pause"/>
                                 <connections>
                                     <action selector="btnPause:" destination="iJX-MP-UQK" eventType="touchUpInside" id="1tR-yt-Uzi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAM-5K-hzH">
-                                <rect key="frame" x="313" y="433" width="51" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAM-5K-hzH">
+                                <rect key="frame" x="304" y="423" width="60" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="7TK-av-jGm"/>
+                                    <constraint firstAttribute="height" constant="50" id="mGC-kI-USe"/>
+                                </constraints>
                                 <state key="normal" title="resume"/>
                                 <connections>
                                     <action selector="btnResume:" destination="iJX-MP-UQK" eventType="touchUpInside" id="1fc-pL-MDg"/>
@@ -76,29 +81,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmy-vC-A1F">
+                                <rect key="frame" x="134.5" y="100" width="145" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ieo-4c-0e2"/>
                         <constraints>
+                            <constraint firstItem="pFU-zn-d9r" firstAttribute="width" secondItem="jAM-5K-hzH" secondAttribute="width" id="40l-yR-DGk"/>
                             <constraint firstItem="3Qp-he-8Q0" firstAttribute="top" secondItem="LZ7-ke-Fe2" secondAttribute="bottom" constant="20" id="9FB-N4-PSP"/>
+                            <constraint firstItem="nWW-FW-zZP" firstAttribute="width" secondItem="pFU-zn-d9r" secondAttribute="width" id="BMa-Br-rcD"/>
                             <constraint firstItem="ieo-4c-0e2" firstAttribute="trailing" secondItem="LZ7-ke-Fe2" secondAttribute="trailing" constant="10" id="BYd-pd-Jgz"/>
+                            <constraint firstItem="K6H-5X-7p0" firstAttribute="width" secondItem="jAM-5K-hzH" secondAttribute="width" id="Cz7-oe-dpx"/>
                             <constraint firstItem="Tax-vr-Dr5" firstAttribute="top" secondItem="LZ7-ke-Fe2" secondAttribute="bottom" constant="20" id="D49-rk-Y73"/>
                             <constraint firstItem="LZ7-ke-Fe2" firstAttribute="top" secondItem="ieo-4c-0e2" secondAttribute="top" constant="100" id="D8o-lP-iWR"/>
                             <constraint firstItem="nWW-FW-zZP" firstAttribute="top" secondItem="pFU-zn-d9r" secondAttribute="bottom" constant="70" id="DK7-0B-dFC"/>
                             <constraint firstItem="LZ7-ke-Fe2" firstAttribute="leading" secondItem="ieo-4c-0e2" secondAttribute="leading" constant="10" id="G3S-nA-eyX"/>
                             <constraint firstItem="jAM-5K-hzH" firstAttribute="centerY" secondItem="LBy-8y-uVR" secondAttribute="centerY" id="GA9-sG-0NO"/>
                             <constraint firstItem="3Qp-he-8Q0" firstAttribute="leading" secondItem="ieo-4c-0e2" secondAttribute="leading" constant="20" id="L0D-3v-XRT"/>
+                            <constraint firstItem="Kmy-vC-A1F" firstAttribute="centerX" secondItem="LBy-8y-uVR" secondAttribute="centerX" id="MeI-yn-rLR"/>
                             <constraint firstItem="pFU-zn-d9r" firstAttribute="leading" secondItem="ieo-4c-0e2" secondAttribute="leading" constant="60" id="TES-2t-2aW"/>
+                            <constraint firstItem="nWW-FW-zZP" firstAttribute="height" secondItem="pFU-zn-d9r" secondAttribute="height" id="cYA-PM-vS2"/>
                             <constraint firstItem="ieo-4c-0e2" firstAttribute="trailing" secondItem="K6H-5X-7p0" secondAttribute="trailing" constant="50" id="e40-QF-IsK"/>
                             <constraint firstItem="K6H-5X-7p0" firstAttribute="top" secondItem="jAM-5K-hzH" secondAttribute="bottom" constant="70" id="fOo-xU-VPd"/>
                             <constraint firstItem="ieo-4c-0e2" firstAttribute="trailing" secondItem="K6H-5X-7p0" secondAttribute="trailing" constant="50" id="hiy-70-s7N"/>
                             <constraint firstItem="pFU-zn-d9r" firstAttribute="centerY" secondItem="LBy-8y-uVR" secondAttribute="centerY" id="iKp-GZ-4iA"/>
                             <constraint firstItem="ieo-4c-0e2" firstAttribute="trailing" secondItem="jAM-5K-hzH" secondAttribute="trailing" constant="50" id="mrA-1C-xce"/>
+                            <constraint firstItem="Kmy-vC-A1F" firstAttribute="top" secondItem="ieo-4c-0e2" secondAttribute="top" constant="56" id="ofx-gN-qE6"/>
+                            <constraint firstItem="pFU-zn-d9r" firstAttribute="height" secondItem="jAM-5K-hzH" secondAttribute="height" id="tlH-3n-cl6"/>
                             <constraint firstItem="ieo-4c-0e2" firstAttribute="trailing" secondItem="Tax-vr-Dr5" secondAttribute="trailing" constant="20" id="vEk-sx-rz4"/>
                             <constraint firstItem="nWW-FW-zZP" firstAttribute="leading" secondItem="ieo-4c-0e2" secondAttribute="leading" constant="60" id="xaR-y3-aaa"/>
+                            <constraint firstItem="K6H-5X-7p0" firstAttribute="height" secondItem="jAM-5K-hzH" secondAttribute="height" id="zZ1-OT-jYF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ieo-4c-0e2"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="remote file" id="ZRh-Lj-cO9"/>
+                    <tabBarItem key="tabBarItem" title="Download Service" id="ZRh-Lj-cO9"/>
                     <connections>
                         <outlet property="btnPause" destination="K6H-5X-7p0" id="P1A-Rp-GmN"/>
                         <outlet property="btnResume" destination="jAM-5K-hzH" id="faK-X3-nf2"/>
@@ -113,37 +131,41 @@
             </objects>
             <point key="canvasLocation" x="623" y="42"/>
         </scene>
-        <!--local file-->
+        <!--File Download Service-->
         <scene sceneID="PeR-VI-JAQ">
             <objects>
-                <viewController storyboardIdentifier="LocalFileViewController" id="T83-eV-ZJ3" customClass="LocalFileViewController" customModule="AssetManagerExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocalFileViewController" id="T83-eV-ZJ3" customClass="LocalFileViewController" customModule="DownloadKitExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aYD-Vw-Eoi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2V-xd-0cl">
-                                <rect key="frame" x="60" y="433" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2V-xd-0cl">
+                                <rect key="frame" x="60" y="423" width="60" height="50"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="btnStart:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="NxF-Qa-lpE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39B-qq-7aN">
-                                <rect key="frame" x="60" y="533" width="32" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39B-qq-7aN">
+                                <rect key="frame" x="60" y="543" width="60" height="50"/>
                                 <state key="normal" title="Stop"/>
                                 <connections>
                                     <action selector="btnStop:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="9Z4-eF-QWH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4u0-mU-CEk">
-                                <rect key="frame" x="322" y="533" width="42" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4u0-mU-CEk">
+                                <rect key="frame" x="304" y="543" width="60" height="50"/>
                                 <state key="normal" title="pause"/>
                                 <connections>
                                     <action selector="btnPause:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="aot-Kx-iVn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43f-qS-YSW">
-                                <rect key="frame" x="313" y="433" width="51" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43f-qS-YSW">
+                                <rect key="frame" x="304" y="423" width="60" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DfB-q8-MQP"/>
+                                    <constraint firstAttribute="width" constant="60" id="bRq-6x-V4M"/>
+                                </constraints>
                                 <state key="normal" title="resume"/>
                                 <connections>
                                     <action selector="btnResume:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="I0X-BC-dkK"/>
@@ -164,28 +186,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdK-wR-Znq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdK-wR-Znq">
                                 <rect key="frame" x="102" y="733" width="210" height="30"/>
                                 <state key="normal" title="resum download from local file"/>
                                 <connections>
                                     <action selector="btnResumDownloadFromLocalFile:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="6Uq-X8-Hqr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Off-9b-FrQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Off-9b-FrQ">
                                 <rect key="frame" x="184" y="695" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="btnTest:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="aZH-Au-wJK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Download Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIz-JL-L7B">
+                                <rect key="frame" x="123.5" y="100" width="167.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="IKU-5M-Ekt"/>
                         <constraints>
+                            <constraint firstItem="4u0-mU-CEk" firstAttribute="height" secondItem="43f-qS-YSW" secondAttribute="height" id="38u-zz-ZbA"/>
                             <constraint firstItem="APJ-GP-OpA" firstAttribute="top" secondItem="IKU-5M-Ekt" secondAttribute="top" constant="100" id="4bS-Dl-MAL"/>
+                            <constraint firstItem="OIz-JL-L7B" firstAttribute="centerX" secondItem="aYD-Vw-Eoi" secondAttribute="centerX" id="4eV-0V-2yO"/>
                             <constraint firstItem="Off-9b-FrQ" firstAttribute="centerX" secondItem="aYD-Vw-Eoi" secondAttribute="centerX" id="7pP-e7-1Jk"/>
                             <constraint firstItem="39B-qq-7aN" firstAttribute="leading" secondItem="IKU-5M-Ekt" secondAttribute="leading" constant="60" id="8oZ-6k-6X6"/>
+                            <constraint firstItem="OIz-JL-L7B" firstAttribute="top" secondItem="IKU-5M-Ekt" secondAttribute="top" constant="56" id="C1j-cW-F7Y"/>
                             <constraint firstItem="q2V-xd-0cl" firstAttribute="leading" secondItem="IKU-5M-Ekt" secondAttribute="leading" constant="60" id="FYB-QO-hQh"/>
                             <constraint firstItem="BMH-74-SQC" firstAttribute="leading" secondItem="IKU-5M-Ekt" secondAttribute="leading" constant="20" id="J6w-Qt-ZaP"/>
+                            <constraint firstItem="q2V-xd-0cl" firstAttribute="height" secondItem="43f-qS-YSW" secondAttribute="height" id="JfW-q0-D1b"/>
+                            <constraint firstItem="39B-qq-7aN" firstAttribute="height" secondItem="43f-qS-YSW" secondAttribute="height" id="KLt-hU-r3t"/>
                             <constraint firstItem="yR4-v0-V8u" firstAttribute="top" secondItem="APJ-GP-OpA" secondAttribute="bottom" constant="20" id="RXc-QJ-tEF"/>
                             <constraint firstItem="IKU-5M-Ekt" firstAttribute="trailing" secondItem="yR4-v0-V8u" secondAttribute="trailing" constant="20" id="Rud-yn-fGI"/>
                             <constraint firstItem="IKU-5M-Ekt" firstAttribute="bottom" secondItem="AdK-wR-Znq" secondAttribute="bottom" constant="50" id="SC9-qX-wEf"/>
@@ -194,17 +227,19 @@
                             <constraint firstItem="IKU-5M-Ekt" firstAttribute="trailing" secondItem="4u0-mU-CEk" secondAttribute="trailing" constant="50" id="WNh-En-bwH"/>
                             <constraint firstItem="43f-qS-YSW" firstAttribute="centerY" secondItem="aYD-Vw-Eoi" secondAttribute="centerY" id="amp-Af-7Oa"/>
                             <constraint firstItem="IKU-5M-Ekt" firstAttribute="trailing" secondItem="APJ-GP-OpA" secondAttribute="trailing" constant="10" id="f89-6X-tBH"/>
+                            <constraint firstItem="q2V-xd-0cl" firstAttribute="width" secondItem="43f-qS-YSW" secondAttribute="width" id="fJF-Mo-45s"/>
                             <constraint firstItem="BMH-74-SQC" firstAttribute="top" secondItem="APJ-GP-OpA" secondAttribute="bottom" constant="20" id="gGH-no-o26"/>
                             <constraint firstItem="39B-qq-7aN" firstAttribute="top" secondItem="q2V-xd-0cl" secondAttribute="bottom" constant="70" id="h6S-ua-aCt"/>
                             <constraint firstItem="4u0-mU-CEk" firstAttribute="top" secondItem="43f-qS-YSW" secondAttribute="bottom" constant="70" id="iZR-92-bWC"/>
                             <constraint firstItem="q2V-xd-0cl" firstAttribute="centerY" secondItem="aYD-Vw-Eoi" secondAttribute="centerY" id="j2y-o7-d4R"/>
+                            <constraint firstItem="4u0-mU-CEk" firstAttribute="width" secondItem="43f-qS-YSW" secondAttribute="width" id="oUI-my-Goi"/>
                             <constraint firstItem="IKU-5M-Ekt" firstAttribute="trailing" secondItem="4u0-mU-CEk" secondAttribute="trailing" constant="50" id="qOw-Gi-O4t"/>
                             <constraint firstItem="APJ-GP-OpA" firstAttribute="leading" secondItem="IKU-5M-Ekt" secondAttribute="leading" constant="10" id="sN1-DT-KX2"/>
                             <constraint firstItem="IKU-5M-Ekt" firstAttribute="trailing" secondItem="43f-qS-YSW" secondAttribute="trailing" constant="50" id="ujc-ya-v04"/>
+                            <constraint firstItem="39B-qq-7aN" firstAttribute="width" secondItem="43f-qS-YSW" secondAttribute="width" id="z87-r3-ChP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="IKU-5M-Ekt"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="local file" id="KMZ-Lt-B01"/>
+                    <tabBarItem key="tabBarItem" title="File Download Service" id="KMZ-Lt-B01"/>
                     <connections>
                         <outlet property="btnPause" destination="4u0-mU-CEk" id="mJQ-hE-Qim"/>
                         <outlet property="btnResumDownloadFromLocalFile" destination="AdK-wR-Znq" id="KHC-BC-ifi"/>
