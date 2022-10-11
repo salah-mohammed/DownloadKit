@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dt8-JG-dQT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dt8-JG-dQT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,22 +67,22 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LZ7-ke-Fe2">
-                                <rect key="frame" x="8" y="144" width="398" height="31"/>
+                                <rect key="frame" x="8" y="148" width="398" height="31"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qp-he-8Q0">
-                                <rect key="frame" x="20" y="194" width="42" height="21"/>
+                                <rect key="frame" x="20" y="198" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tax-vr-Dr5">
-                                <rect key="frame" x="352" y="194" width="42" height="21"/>
+                                <rect key="frame" x="352" y="198" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmy-vC-A1F">
-                                <rect key="frame" x="134.5" y="100" width="145" height="21"/>
+                                <rect key="frame" x="134.5" y="104" width="145" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -171,17 +171,28 @@
                                     <action selector="btnResume:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="I0X-BC-dkK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVo-1o-uab">
+                                <rect key="frame" x="177" y="423" width="60" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Ibb-7k-foX"/>
+                                    <constraint firstAttribute="height" constant="50" id="u8A-Cd-fZT"/>
+                                </constraints>
+                                <state key="normal" title="restart"/>
+                                <connections>
+                                    <action selector="btnRestart:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="UgJ-yq-gPi"/>
+                                </connections>
+                            </button>
                             <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="APJ-GP-OpA">
-                                <rect key="frame" x="8" y="144" width="398" height="31"/>
+                                <rect key="frame" x="8" y="148" width="398" height="31"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMH-74-SQC">
-                                <rect key="frame" x="20" y="194" width="42" height="21"/>
+                                <rect key="frame" x="20" y="198" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yR4-v0-V8u">
-                                <rect key="frame" x="352" y="194" width="42" height="21"/>
+                                <rect key="frame" x="352" y="198" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -201,7 +212,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Download Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIz-JL-L7B">
-                                <rect key="frame" x="123.5" y="100" width="167.5" height="21"/>
+                                <rect key="frame" x="123.5" y="104" width="167" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -219,10 +230,12 @@
                             <constraint firstItem="BMH-74-SQC" firstAttribute="leading" secondItem="IKU-5M-Ekt" secondAttribute="leading" constant="20" id="J6w-Qt-ZaP"/>
                             <constraint firstItem="q2V-xd-0cl" firstAttribute="height" secondItem="43f-qS-YSW" secondAttribute="height" id="JfW-q0-D1b"/>
                             <constraint firstItem="39B-qq-7aN" firstAttribute="height" secondItem="43f-qS-YSW" secondAttribute="height" id="KLt-hU-r3t"/>
+                            <constraint firstItem="GVo-1o-uab" firstAttribute="centerY" secondItem="aYD-Vw-Eoi" secondAttribute="centerY" id="QzQ-Fo-2dr"/>
                             <constraint firstItem="yR4-v0-V8u" firstAttribute="top" secondItem="APJ-GP-OpA" secondAttribute="bottom" constant="20" id="RXc-QJ-tEF"/>
                             <constraint firstItem="IKU-5M-Ekt" firstAttribute="trailing" secondItem="yR4-v0-V8u" secondAttribute="trailing" constant="20" id="Rud-yn-fGI"/>
                             <constraint firstItem="IKU-5M-Ekt" firstAttribute="bottom" secondItem="AdK-wR-Znq" secondAttribute="bottom" constant="50" id="SC9-qX-wEf"/>
                             <constraint firstItem="AdK-wR-Znq" firstAttribute="top" secondItem="Off-9b-FrQ" secondAttribute="bottom" constant="8" symbolic="YES" id="SQR-4C-gLM"/>
+                            <constraint firstItem="GVo-1o-uab" firstAttribute="centerX" secondItem="aYD-Vw-Eoi" secondAttribute="centerX" id="T0S-LH-rW9"/>
                             <constraint firstItem="AdK-wR-Znq" firstAttribute="centerX" secondItem="aYD-Vw-Eoi" secondAttribute="centerX" id="T6Y-4Z-yVp"/>
                             <constraint firstItem="IKU-5M-Ekt" firstAttribute="trailing" secondItem="4u0-mU-CEk" secondAttribute="trailing" constant="50" id="WNh-En-bwH"/>
                             <constraint firstItem="43f-qS-YSW" firstAttribute="centerY" secondItem="aYD-Vw-Eoi" secondAttribute="centerY" id="amp-Af-7Oa"/>

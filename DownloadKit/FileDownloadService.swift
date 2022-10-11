@@ -14,7 +14,8 @@ extension Notification.Name {
     static let DidFinishDownloadingWithError = Notification.Name("DidFinishDownloadingWithError")
 
 }
-open class BaseFileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDelegate {
+
+ open class ParentFileDownloadService: NSObject,URLSessionDelegate,URLSessionDownloadDelegate {
     public enum ThreadType{
        case background
        case main
@@ -44,9 +45,8 @@ open class BaseFileDownloadService: NSObject,URLSessionDelegate,URLSessionDownlo
     open var percentageDownloaded:Float{
         return  Float(totalBytesWritten) / Float(totalBytesExpectedToWrite);
     }
-    open var localFileUrl:URL?
     func internalLocalFileUrl()->URL?{
-        return self.localFileUrl
+        return nil
     }
     open var didReceive:DidReceive?
     open var didFinishDownloadingTo:DidFinishDownloadingTo?
@@ -140,7 +140,7 @@ open class BaseFileDownloadService: NSObject,URLSessionDelegate,URLSessionDownlo
         self.dataTask?.suspend();
     }
     open func writeFile(data:Data,url:URL){
-        if let fileURL:URL = self.localFileUrl{
+        if let fileURL:URL = self.internalLocalFileUrl(){
             do {
              try data.write(to: fileURL)
             }catch(_){
@@ -185,7 +185,16 @@ open class BaseFileDownloadService: NSObject,URLSessionDelegate,URLSessionDownlo
         NotificationCenter.default.removeObserver(self, name: .DidFinishDownloadingWithError, object: nil);
     }
 }
-open class FileDownloadService: BaseFileDownloadService{
+open class BaseFileDownloadService:ParentFileDownloadService{
+   open var localFileUrl:URL?
+    override func internalLocalFileUrl()->URL?{
+    return self.localFileUrl
+    }
+}
+open class FileDownloadService:ParentFileDownloadService{
+    open var localFileUrl:URL?{
+     return internalLocalFileUrl()
+    }
     public enum LocalFile{
      case url(URL)
      case downloads(folderName:String?="Downloads",localefileName:String,fileType:String)
@@ -234,8 +243,8 @@ open class FileDownloadService: BaseFileDownloadService{
         }
     }
 }
-extension BaseFileDownloadService {
-    func reStart(){
+ extension ParentFileDownloadService {
+     public func reStart(){
         self.build(url: self.url!)
         self.resume();
     }
