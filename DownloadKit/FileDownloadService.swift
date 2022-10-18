@@ -58,18 +58,23 @@ extension Notification.Name {
             if let localFile:URL = self.internalLocalFileUrl(){
                 _ = try? manager.removeItem(at: localFile)
                  try manager.moveItem(at: location, to: localFile)    // move new one there
+                self.finishSucess(localFile);
             }else{
-                self.didFinishDownloadingWithError?(FileDownloadServiceError.localFileUrlNil);
+                self.finishWithError(error: FileDownloadServiceError.localFileUrlNil);
             }
         } catch let moveError {
-            self.didFinishDownloadingWithError?(FileDownloadServiceError.writeFileError);
+            self.finishWithError(error: FileDownloadServiceError.writeFileError);
             print("\(moveError)")
         }
         }
-        NotificationCenter.default.post(name: .DidFinishDownloadingTo, object: nil)
-
-        didFinishDownloadingTo?(location);
     }
+     func finishSucess(_ localFile:URL){
+         NotificationCenter.default.post(name: .DidFinishDownloadingTo, object: nil)
+         didFinishDownloadingTo?(localFile);
+     }
+     func finishWithError(error:FileDownloadServiceError){
+         self.didFinishDownloadingWithError?(error);
+     }
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         if totalBytesWritten == bytesWritten , totalBytesExpectedToWrite == -1{
             self.didFinishDownloadingWithError?(FileDownloadServiceError.serverUnavailable);
@@ -185,7 +190,7 @@ extension Notification.Name {
         NotificationCenter.default.removeObserver(self, name: .DidFinishDownloadingWithError, object: nil);
     }
 }
-open class BaseFileDownloadService:ParentFileDownloadService{
+open class BasicFileDownloadService:ParentFileDownloadService{
    open var localFileUrl:URL?
     override func internalLocalFileUrl()->URL?{
     return self.localFileUrl
