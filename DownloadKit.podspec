@@ -116,6 +116,7 @@ Pod::Spec.new do |s|
   #
 
    s.framework  = "RealmSwift"
+   s.framework  = "Realm"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
