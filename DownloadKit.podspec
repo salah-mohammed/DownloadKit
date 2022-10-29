@@ -114,9 +114,6 @@ Pod::Spec.new do |s|
   #  Link your library with frameworks, or libraries. Libraries do not include
   #  the lib prefix of their name.
   #
-s.preserve_paths = "Resources/RealmSwift.framework","Realm"
-s.frameworks  = "RealmSwift","Realm"
-
 
   # s.framework  = "RealmSwift"
   # s.framework  = "Realm"
@@ -139,5 +136,6 @@ s.frameworks  = "RealmSwift","Realm"
 
 s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
 s.resources = 'Pod/Resources/*'
+ s.static_framework = true
 
 end
