@@ -72,12 +72,13 @@ extension Notification.Name {
          NotificationCenter.default.post(name: .DidFinishDownloadingTo, object: nil)
          didFinishDownloadingTo?(localFile);
      }
-     func finishWithError(error:FileDownloadServiceError){
+     func finishWithError(error:Error?){
+         NotificationCenter.default.post(name: .DidFinishDownloadingWithError, object: nil)
          self.didFinishDownloadingWithError?(error);
      }
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         if totalBytesWritten == bytesWritten , totalBytesExpectedToWrite == -1{
-            self.didFinishDownloadingWithError?(FileDownloadServiceError.serverUnavailable);
+            self.finishWithError(error: FileDownloadServiceError.serverUnavailable)
         }else{
             self.totalBytesWritten=totalBytesWritten;
             self.totalBytesExpectedToWrite=totalBytesExpectedToWrite;
@@ -86,9 +87,7 @@ extension Notification.Name {
         }
     }
     public func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
-        self.didFinishDownloadingWithError?(error);
-        NotificationCenter.default.post(name: .DidFinishDownloadingWithError, object: nil)
-
+        self.finishWithError(error: error ?? nil)
     }
     open var url:URL?
     private var session:URLSession?
@@ -149,10 +148,10 @@ extension Notification.Name {
             do {
              try data.write(to: fileURL)
             }catch(_){
-                didFinishDownloadingWithError?(FileDownloadServiceError.writeFileError)
+                self.finishWithError(error: FileDownloadServiceError.writeFileError)
             }
         }else{
-            self.didFinishDownloadingWithError?(FileDownloadServiceError.localFileUrlNil);
+            self.finishWithError(error: FileDownloadServiceError.localFileUrlNil)
         }
     }
     public func build(data:Data){
@@ -213,11 +212,11 @@ open class FileDownloadService:ParentFileDownloadService{
             case .downloads(folderName:let folderName,localefileName: let localefileName, fileType: let fileType):
                 return self.genrateLocalFile(remoteFile:url,folderName,fileType,localefileName);
             default:
-                self.didFinishDownloadingWithError?(FileDownloadServiceError.localFileUrlNil);
+                self.finishWithError(error: FileDownloadServiceError.localFileUrlNil)
             }
             
         }
-       self.didFinishDownloadingWithError?(FileDownloadServiceError.remoteFileUrlNil);
+       self.finishWithError(error: FileDownloadServiceError.remoteFileUrlNil)
        return nil;
     }
 
@@ -241,10 +240,10 @@ open class FileDownloadService:ParentFileDownloadService{
             do {
              try data.write(to: fileURL)
             }catch(_){
-                didFinishDownloadingWithError?(FileDownloadServiceError.writeFileError)
+                self.finishWithError(error: FileDownloadServiceError.writeFileError)
             }
         }else{
-            self.didFinishDownloadingWithError?(FileDownloadServiceError.localFileUrlNil);
+            self.finishWithError(error: FileDownloadServiceError.localFileUrlNil)
         }
     }
 }
@@ -284,19 +283,3 @@ extension URL {
         return nil
     }
 }
-/*
- public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-     
-     if totalBytesWritten == bytesWritten , totalBytesExpectedToWrite == -1{
-         // server not found the server is expired
-         //            self.didFinishDownloadingWithError?(Error.Protocol)
-     }else{
-         self.totalBytesWritten=totalBytesWritten;
-         self.totalBytesExpectedToWrite=totalBytesExpectedToWrite;
-         didReceive?();
-         NotificationCenter.default.post(name: .DidReceive, object: nil)
-     }
-
-
- }
- */

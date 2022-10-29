@@ -1,6 +1,11 @@
 import Photos
 import AVKit
-
+#if canImport(Realm)
+#if canImport(RealmSwift)
+import Realm
+import RealmSwift
+#endif
+#endif
 
 extension FileManager {
    internal class func le_writeToFile(fileName:String,fileData:Data,completionHandler:(URL?)->Void){
@@ -92,3 +97,34 @@ extension PHPhotoLibrary {
 }
 
 
+#if canImport(Realm)
+#if canImport(RealmSwift)
+extension Realm {
+    func bs_write(_ handler:@escaping (Realm) -> Void,errorHandler:((NSError) -> Void)?){
+        DispatchQueue.main.async {
+        autoreleasepool {
+        do {
+        let realm = self
+        if realm.isInWriteTransaction{
+            handler(realm);
+        }else{
+            try realm.write {
+                 handler(realm);
+             }
+        }
+        }
+        catch let error as NSError {
+            errorHandler?(error);
+        }
+    }
+        }
+    }
+    func bs_write(_ handler:@escaping (Realm) -> Void){
+        self.bs_write({ (realm) in
+            handler(realm)
+        }, errorHandler: { (error) in
+        })
+      }
+}
+#endif
+#endif
