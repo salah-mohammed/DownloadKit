@@ -139,5 +139,5 @@ Pod::Spec.new do |s|
 s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
 s.resources = 'Pod/Resources/*'
 # s.static_framework = true
-spec.vendored_frameworks = 'Realm.xcframework'
+s.vendored_frameworks = 'Realm.xcframework'
 end
