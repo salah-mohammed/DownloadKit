@@ -114,9 +114,8 @@ Pod::Spec.new do |s|
   #  Link your library with frameworks, or libraries. Libraries do not include
   #  the lib prefix of their name.
   #
-
-   s.vendored_frameworks = 'Frameworks/RealmSwift.framework','Frameworks/Realm.framework'
-
+s.preserve_paths = "Resources/RealmSwift.framework","Realm"
+s.frameworks  = "RealmSwift","Realm"
 
 
   # s.framework  = "RealmSwift"
