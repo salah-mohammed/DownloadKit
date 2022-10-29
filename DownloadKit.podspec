@@ -115,8 +115,12 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-   s.framework  = "RealmSwift"
-   s.framework  = "Realm"
+   s.vendored_frameworks = 'Frameworks/RealmSwift.framework','Frameworks/Realm.framework'
+
+
+
+  # s.framework  = "RealmSwift"
+  # s.framework  = "Realm"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
