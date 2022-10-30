@@ -54,7 +54,7 @@ open class Download: Object {
         }
         }else{return nil}
     }
-    static func download(remoteUrl:String)->Download?{
+    public static func download(remoteUrl:String)->Download?{
         var object = DownloadKitManager.shared.realmObject?().objects(Download.self).filter({ (item) -> Bool in
             return remoteUrl == item.url
         }).first;
@@ -70,7 +70,7 @@ open class Download: Object {
         }
         return object;
     }
-    func update(totalBytesCount:Int,_ recivedBytesCount:Int,handler:((Download)->Void)?){
+    open func update(totalBytesCount:Int,_ recivedBytesCount:Int,handler:((Download)->Void)?){
         DownloadKitManager.shared.realmObject?().bs_write({ (realm) in
         var object:Download=self
         object.totalBytesCount = totalBytesCount
