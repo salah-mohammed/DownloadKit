@@ -12,7 +12,7 @@ import UIKit
 import Realm
 import RealmSwift
 open class DownloadKitManager: NSObject {
-    public typealias RealmObject = ()->Realm
+    public typealias RealmObject = (()->Realm?)
     var realmObject:RealmObject?
     public func realmHandler(realmHandler:@escaping RealmObject){
         self.realmObject=realmHandler;
