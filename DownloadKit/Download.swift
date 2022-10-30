@@ -17,11 +17,11 @@ open class Download: Object {
     case downloaded
     case downloading
     }
-    @objc dynamic var id:Int = 0
-    @objc dynamic var recivedBytesCount:Int = 0
-    @objc dynamic var totalBytesCount:Int = 0
-    @objc dynamic var url:String="";
-    @objc dynamic var localFileUrl:String="";
+    @objc dynamic open var id:Int = 0
+    @objc dynamic open var recivedBytesCount:Int = 0
+    @objc dynamic open var totalBytesCount:Int = 0
+    @objc dynamic open var url:String="";
+    @objc dynamic open var localFileUrl:String="";
     open var status:Status?{
         if self.totalBytesCount == 0 && recivedBytesCount == 0 {
             return .notDownloaded;
@@ -40,7 +40,7 @@ open class Download: Object {
     open override class func primaryKey() -> String? {
         return "id"
     }
-    static func IncrementaID() -> Int?{
+    public static func IncrementaID() -> Int?{
        
         if let realm = DownloadKitManager.shared.realmObject?(){
         let RetNext: NSArray = Array(realm.objects(self).sorted(byKeyPath:"id")) as NSArray;
