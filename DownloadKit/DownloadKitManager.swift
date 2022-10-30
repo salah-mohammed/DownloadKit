@@ -12,15 +12,19 @@ import UIKit
 import Realm
 import RealmSwift
 open class DownloadKitManager: NSObject {
-    public typealias RealmObject = (()->Realm?)
-    var realmObject:RealmObject?
-    public func realmHandler(realmHandler:@escaping RealmObject){
-        self.realmObject=realmHandler;
-    }
+    var realm:Realm?
     public static let shared: DownloadKitManager = { DownloadKitManager()} ()
     override init() {
         super.init()
+        var config = Realm.Configuration()
+        config.fileURL = config.fileURL?.deletingLastPathComponent().appendingPathComponent("DownloadKit.realm")
+            autoreleasepool {
+            do {
+            self.realm = try? Realm(configuration: config)
+            }catch let error as NSError {
         
+                }
+            }
     }
 }
 #endif

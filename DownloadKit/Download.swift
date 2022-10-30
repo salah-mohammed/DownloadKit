@@ -42,7 +42,7 @@ open class Download: Object {
     }
     public static func IncrementaID() -> Int?{
        
-        if let realm = DownloadKitManager.shared.realmObject?(){
+        if let realm = DownloadKitManager.shared.realm{
         let RetNext: NSArray = Array(realm.objects(self).sorted(byKeyPath:"id")) as NSArray;
         let last:Download? = RetNext.lastObject as? Download
         if RetNext.count > 0 {
@@ -55,11 +55,11 @@ open class Download: Object {
         }else{return nil}
     }
     public static func download(remoteUrl:String)->Download?{
-        var object = DownloadKitManager.shared.realmObject?()?.objects(Download.self).filter({ (item) -> Bool in
+        var object = DownloadKitManager.shared.realm?.objects(Download.self).filter({ (item) -> Bool in
             return remoteUrl == item.url
         }).first;
         if object == nil{
-        DownloadKitManager.shared.realmObject?()?.bs_write({ (realm) in
+        DownloadKitManager.shared.realm?.bs_write({ (realm) in
         if object == nil,let id:Int = Download.IncrementaID() {
                object = Download();
                object?.id = id
@@ -71,7 +71,7 @@ open class Download: Object {
         return object;
     }
     open func update(totalBytesCount:Int,_ recivedBytesCount:Int,handler:((Download)->Void)?){
-        DownloadKitManager.shared.realmObject?()?.bs_write({ (realm) in
+        DownloadKitManager.shared.realm?.bs_write({ (realm) in
         var object:Download=self
         object.totalBytesCount = totalBytesCount
         object.recivedBytesCount = recivedBytesCount
