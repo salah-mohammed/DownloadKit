@@ -22,7 +22,7 @@ open class Download: Object {
     @objc dynamic var totalBytesCount:Int = 0
     @objc dynamic var url:String="";
     @objc dynamic var localFileUrl:String="";
-    var status:Status?{
+    open var status:Status?{
         if self.totalBytesCount == 0 && recivedBytesCount == 0 {
             return .notDownloaded;
         }else
