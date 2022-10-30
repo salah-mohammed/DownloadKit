@@ -11,8 +11,8 @@ import UIKit
 #if canImport(RealmSwift)
 import Realm
 import RealmSwift
-class DownloadKitManager: NSObject {
-    typealias RealmObject = ()->Realm
+open class DownloadKitManager: NSObject {
+    public typealias RealmObject = ()->Realm
     var realmObject:RealmObject?
     public func realmHandler(realmHandler:@escaping RealmObject){
         self.realmObject=realmHandler;
