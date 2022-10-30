@@ -1,0 +1,86 @@
+//
+//  Download.swift
+//  DownloadKit
+//
+//  Created by Salah on 6/16/19.
+//  Copyright © 2019 Salah. All rights reserved.
+//
+
+import UIKit
+#if canImport(Realm)
+#if canImport(RealmSwift)
+import Realm
+import RealmSwift
+
+open class Download: Object {
+    public enum Status{
+    case notDownloaded
+    case downloaded
+    case downloading
+    }
+    @objc dynamic var id:Int = 0
+    @objc dynamic var recivedBytesCount:Int = 0
+    @objc dynamic var totalBytesCount:Int = 0
+    @objc dynamic var url:String="";
+    @objc dynamic var localFileUrl:String="";
+    var status:Status?{
+        if self.totalBytesCount == 0 && recivedBytesCount == 0 {
+            return .notDownloaded;
+        }else
+        if self.totalBytesCount > 0 && recivedBytesCount == 0 {
+        return .notDownloaded;
+        }else
+        if self.totalBytesCount ==  recivedBytesCount{
+        return .downloaded;
+        }else
+        if self.totalBytesCount > 0 && recivedBytesCount > 0 {
+        return .downloading;
+        }
+        return nil;
+    }
+    open override class func primaryKey() -> String? {
+        return "id"
+    }
+    static func IncrementaID() -> Int?{
+       
+        if let realm = DownloadKitManager.shared.realmObject?(){
+        let RetNext: NSArray = Array(realm.objects(self).sorted(byKeyPath:"id")) as NSArray;
+        let last:Download? = RetNext.lastObject as? Download
+        if RetNext.count > 0 {
+            let valor = last?.id ?? 0;
+            
+            return  valor + 1
+        } else {
+            return 1
+        }
+        }else{return nil}
+    }
+    static func download(remoteUrl:String)->Download?{
+        var object = DownloadKitManager.shared.realmObject?().objects(Download.self).filter({ (item) -> Bool in
+            return remoteUrl == item.url
+        }).first;
+        if object == nil{
+        DownloadKitManager.shared.realmObject?().bs_write({ (realm) in
+        if object == nil,let id:Int = Download.IncrementaID() {
+               object = Download();
+               object?.id = id
+               object?.url = remoteUrl
+            realm.add(object!, update: .all);
+           }
+        })
+        }
+        return object;
+    }
+    func update(totalBytesCount:Int,_ recivedBytesCount:Int,handler:((Download)->Void)?){
+        DownloadKitManager.shared.realmObject?().bs_write({ (realm) in
+        var object:Download=self
+        object.totalBytesCount = totalBytesCount
+        object.recivedBytesCount = recivedBytesCount
+        realm.add(object, update: .all);
+        handler?(object);
+        })
+    }
+
+}
+#endif
+#endif
