@@ -5,7 +5,6 @@
 //  Created by Salah on 6/16/19.
 //  Copyright © 2019 Salah. All rights reserved.
 //
-
 import UIKit
 #if canImport(Realm)
 #if canImport(RealmSwift)
