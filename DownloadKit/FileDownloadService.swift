@@ -189,6 +189,7 @@ extension Notification.Name {
         NotificationCenter.default.removeObserver(self, name: .DidFinishDownloadingWithError, object: nil);
     }
 }
+public let DownloadKitDefaultFolderName = "Downloads"
 open class BasicFileDownloadService:ParentFileDownloadService{
    open var localFileUrl:URL?
     override func internalLocalFileUrl()->URL?{
@@ -201,16 +202,19 @@ open class FileDownloadService:ParentFileDownloadService{
     }
     public enum LocalFile{
      case url(URL)
-     case downloads(folderName:String?="Downloads",localefileName:String,fileType:String)
+     case downloads(folderName:String?=DownloadKitDefaultFolderName,localefileName:String,fileType:String)
     }
     public var localFile:LocalFile?
+    private func folderName(_ folderName:String?)->String{
+     return folderName ?? DownloadKitDefaultFolderName
+    }
    override func internalLocalFileUrl()->URL?{
         if let url:URL = self.url{
             switch self.localFile{
             case .url(let url):
                 return url
             case .downloads(folderName:let folderName,localefileName: let localefileName, fileType: let fileType):
-                return self.genrateLocalFile(remoteFile:url,folderName,fileType,localefileName);
+                return self.genrateLocalFile(remoteFile:url,self.folderName(folderName),fileType,localefileName);
             default:
                 self.finishWithError(error: FileDownloadServiceError.localFileUrlNil)
             }
@@ -221,7 +225,7 @@ open class FileDownloadService:ParentFileDownloadService{
     }
 
     
-    open func genrateLocalFile(remoteFile:URL,_ folderName:String?,_ fileType:String?,_ localefileName:String?)->URL?{
+    open func genrateLocalFile(remoteFile:URL,_ folderName:String,_ fileType:String?,_ localefileName:String?)->URL?{
          let tempLocalFolderUrl:URL? = URL.createFolder(folderName:"\(folderName)")
         //  for get file name from self.localefileName or get file name from remote url
         //https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4 -> video_test
