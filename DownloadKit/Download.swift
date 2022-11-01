@@ -12,6 +12,9 @@ import Realm
 import RealmSwift
 
 open class Download: Object {
+    open var percentageDownloaded:Float{
+        return  Float(recivedBytesCount) / Float(totalBytesCount);
+    }
     public static let defaultFeatureName="default";
     public enum Status{
     case notDownloaded
