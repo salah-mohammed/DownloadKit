@@ -21,7 +21,20 @@ open class Download: Object {
     @objc dynamic open var recivedBytesCount:Int = 0
     @objc dynamic open var totalBytesCount:Int = 0
     @objc dynamic open var url:String="";
-    @objc dynamic open var localFileUrl:String="";
+    @objc dynamic open var localFileStringUrl:String="";
+    @objc dynamic open var featureName:String="";
+    //
+    @objc dynamic open var intObject1:Int=0;
+    @objc dynamic open var intObject2:Int=0;
+    //
+    @objc dynamic open var stringObject1:String="";
+    @objc dynamic open var stringObject2:String="";
+    //
+    @objc dynamic open var doubleObject1:Double=0.0;
+    @objc dynamic open var doubleObject2:Double=0.0;
+    var localFileUrl:URL?{
+        return URL(fileURLWithPath:localFileStringUrl);
+    }
     open var status:Status?{
         if self.totalBytesCount == 0 && recivedBytesCount == 0 {
             return .notDownloaded;
@@ -79,7 +92,14 @@ open class Download: Object {
         handler?(object);
         })
     }
-
+    open func update(_ localFileUrl:URL,handler:((Download)->Void)?){
+        DownloadKitManager.shared.realm?.bs_write({ (realm) in
+        var object:Download=self
+        object.localFileStringUrl = localFileUrl.path
+        realm.add(object, update: .all);
+        handler?(object);
+        })
+    }
 }
 #endif
 #endif

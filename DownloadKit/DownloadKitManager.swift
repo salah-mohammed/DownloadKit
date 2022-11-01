@@ -12,6 +12,7 @@ import UIKit
 import Realm
 import RealmSwift
 open class DownloadKitManager: NSObject {
+   typealias id = (String,String)
     var realm:Realm?
     public static let shared: DownloadKitManager = { DownloadKitManager()} ()
     override init() {
