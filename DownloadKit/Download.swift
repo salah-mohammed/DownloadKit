@@ -12,6 +12,7 @@ import Realm
 import RealmSwift
 
 open class Download: Object {
+    public static let defaultFeatureName="default";
     public enum Status{
     case notDownloaded
     case downloaded
@@ -22,7 +23,7 @@ open class Download: Object {
     @objc dynamic open var totalBytesCount:Int = 0
     @objc dynamic open var url:String="";
     @objc dynamic open var localFileStringUrl:String="";
-    @objc dynamic open var featureName:String="";
+    @objc dynamic open var featureName:String=Download.defaultFeatureName;
     //
     @objc dynamic open var intObject1:Int=0;
     @objc dynamic open var intObject2:Int=0;
@@ -67,7 +68,7 @@ open class Download: Object {
         }
         }else{return nil}
     }
-    public static func download(remoteUrl:String)->Download?{
+    public static func download(featureName:String?=Download.defaultFeatureName,remoteUrl:String)->Download?{
         var object = DownloadKitManager.shared.realm?.objects(Download.self).filter({ (item) -> Bool in
             return remoteUrl == item.url
         }).first;
@@ -77,6 +78,7 @@ open class Download: Object {
                object = Download();
                object?.id = id
                object?.url = remoteUrl
+               object?.featureName = featureName ?? Download.defaultFeatureName
             realm.add(object!, update: .all);
            }
         })
