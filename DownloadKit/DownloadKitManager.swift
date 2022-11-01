@@ -12,7 +12,7 @@ import UIKit
 import Realm
 import RealmSwift
 open class DownloadKitManager: NSObject {
-   typealias id = (String,String)
+//   typealias id = (String,String)
     var realm:Realm?
     public static let shared: DownloadKitManager = { DownloadKitManager()} ()
     override init() {
@@ -26,6 +26,11 @@ open class DownloadKitManager: NSObject {
         
                 }
             }
+    }
+    func action(_ featureName:String?=Download.defaultFeatureName,remoteUrl:URL,_ a:FileDownloadService.DidReceive){
+        if let download = Download.download(remoteUrl:remoteUrl.absoluteString){
+            
+        }
     }
 }
 #endif

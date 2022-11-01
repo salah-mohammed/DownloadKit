@@ -23,7 +23,7 @@ open class DownloadManager: NSObject {
             }
         }
     }
-    open func addfileService(_ url:URL?,folderName:String,fileType:String,localefileName:String)->FileDownloadService?{
+    open func addfileService(_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
         if let url :URL = url{
             var fileDownloadService:FileDownloadService? = self.items.first(where: { (item) -> Bool in
                 return item.url==url
@@ -32,29 +32,15 @@ open class DownloadManager: NSObject {
             fileDownloadService = FileDownloadService.init(url: url,.background);
                 self.items.append(fileDownloadService!);
             }
-            fileDownloadService?.localFile = FileDownloadService.LocalFile.downloads(folderName: folderName,localefileName:localefileName,fileType:fileType)
+            fileDownloadService?.localFile = localFile
             return fileDownloadService;
         }
         return nil;
     }
-    open func addfileService(_ url:URL?,localIUrl:URL)->FileDownloadService?{
-        if let url :URL = url{
-            var fileDownloadService:FileDownloadService? = self.items.first(where: { (item) -> Bool in
-                return item.url==url
-            })
-            if fileDownloadService == nil {
-            fileDownloadService = FileDownloadService.init(url: url,.background);
-            self.items.append(fileDownloadService!);
-            }
-            fileDownloadService?.localFile = FileDownloadService.LocalFile.url(localIUrl)
-            return fileDownloadService;
-        }
-        return nil;
-    }
-    open func fileService(_ url:URL?)->FileDownloadService?{
-        if let url :URL = url{
+    open func fileService(_ remoteUrl:URL?)->FileDownloadService?{
+        if let remoteUrl :URL = remoteUrl{
             let fileDownloadService:FileDownloadService? = self.items.first(where: { (item) -> Bool in
-                return item.url==url
+                return item.url==remoteUrl
             })
             return fileDownloadService;
         }

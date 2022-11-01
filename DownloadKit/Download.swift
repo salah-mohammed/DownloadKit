@@ -70,7 +70,7 @@ open class Download: Object {
     }
     public static func download(_ featureName:String?=Download.defaultFeatureName,remoteUrl:String)->Download?{
         var object = DownloadKitManager.shared.realm?.objects(Download.self).filter({ (item) -> Bool in
-            return remoteUrl == item.url
+            return remoteUrl == item.url && (featureName ?? Download.defaultFeatureName) == item.featureName
         }).first;
         if object == nil{
         DownloadKitManager.shared.realm?.bs_write({ (realm) in
