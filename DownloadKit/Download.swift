@@ -33,7 +33,7 @@ open class Download: Object {
     //
     @objc dynamic open var doubleObject1:Double=0.0;
     @objc dynamic open var doubleObject2:Double=0.0;
-    var localFileUrl:URL?{
+    open var localFileUrl:URL?{
         return URL(fileURLWithPath:localFileStringUrl);
     }
     open var status:Status?{
@@ -68,7 +68,7 @@ open class Download: Object {
         }
         }else{return nil}
     }
-    public static func download(featureName:String?=Download.defaultFeatureName,remoteUrl:String)->Download?{
+    public static func download(_ featureName:String?=Download.defaultFeatureName,remoteUrl:String)->Download?{
         var object = DownloadKitManager.shared.realm?.objects(Download.self).filter({ (item) -> Bool in
             return remoteUrl == item.url
         }).first;
