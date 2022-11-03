@@ -23,24 +23,25 @@ open class DownloadManager: NSObject {
             }
         }
     }
-    open func addfileService(_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
+    open func addfileService(featureName:String?=Download.defaultFeatureName,_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
         if let url :URL = url{
             var fileDownloadService:FileDownloadService? = self.items.first(where: { (item) -> Bool in
                 return item.url==url
             })
             if fileDownloadService == nil {
             fileDownloadService = FileDownloadService.init(url: url,.background);
-                self.items.append(fileDownloadService!);
+            fileDownloadService?.featureName=featureName
+            self.items.append(fileDownloadService!);
             }
             fileDownloadService?.localFile = localFile
             return fileDownloadService;
         }
         return nil;
     }
-    open func fileService(_ remoteUrl:URL?)->FileDownloadService?{
+    open func fileService(featureName:String?=Download.defaultFeatureName,_ remoteUrl:URL?)->FileDownloadService?{
         if let remoteUrl :URL = remoteUrl{
             let fileDownloadService:FileDownloadService? = self.items.first(where: { (item) -> Bool in
-                return item.url==remoteUrl
+                return item.url==remoteUrl && item.featureName==featureName
             })
             return fileDownloadService;
         }

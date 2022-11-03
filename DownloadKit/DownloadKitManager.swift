@@ -36,7 +36,7 @@ remoteUrl:URL)->(Download?,FileDownloadService?){
     return (download,fileDownloadService)
 }
     
-    open func downloadcConfig(_ featureName:String?=Download.defaultFeatureName,
+    open func downloadConfig(_ featureName:String?=Download.defaultFeatureName,
                          remoteUrl:URL)->DownloadData{
         if let download:Download = Download.download(featureName,remoteUrl:remoteUrl.absoluteString){
             if let downloadService = DownloadManager.shared.fileService(remoteUrl){
@@ -49,7 +49,7 @@ remoteUrl:URL)->(Download?,FileDownloadService?){
             return (.notDownloaded,nil,nil)
         }
     }
-    open func downloadcConfig(_ featureName:String?=Download.defaultFeatureName,
+    open func downloadConfig(_ featureName:String?=Download.defaultFeatureName,
                          remoteUrl:URL,
                          status:@escaping DownloadDataConfig){
         if let download:Download = Download.download(featureName,remoteUrl:remoteUrl.absoluteString){
@@ -121,12 +121,12 @@ remoteUrl:URL)->(Download?,FileDownloadService?){
                             }
                         break;
                     case .canceling:
-                        if let  url = downloadService?.localFileUrl {
-                            if var data = try? Data.init(contentsOf:url) {
-                                downloadService?.build(data: data);
-                            }
+//                        if let  url = downloadService?.localFileUrl {
+//                            if var data = try? Data.init(contentsOf:url) {
+//                                downloadService?.build(data: data);
+//                            }
                             downloadService?.resume();
-                            }
+//                            }
                         break;
                     case .completed:
                         break;

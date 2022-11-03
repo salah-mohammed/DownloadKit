@@ -36,9 +36,18 @@ open class Download: Object {
     //
     @objc dynamic open var doubleObject1:Double=0.0;
     @objc dynamic open var doubleObject2:Double=0.0;
+    @objc dynamic open var sessionTask:Int = -1;
+//    var sessionTaskStatus:URLSessionTask.State?{
+//        if sessionTask != -1{
+//            return URLSessionTask.State.init(rawValue:sessionTask)
+//        }
+//        return nil
+//    }
+   
     open var localFileUrl:URL?{
         return URL(fileURLWithPath:localFileStringUrl);
     }
+    
     open var status:Status?{
         if self.totalBytesCount == 0 && recivedBytesCount == 0 {
             return .notDownloaded;
@@ -105,6 +114,14 @@ open class Download: Object {
         handler?(object);
         })
     }
+//    open func update(_ sessionTask:URLSessionTask.State,handler:((Download)->Void)?){
+//        DownloadKitManager.shared.realm?.bs_write({ (realm) in
+//        var object:Download=self
+//            object.sessionTask = sessionTask.rawValue
+//        realm.add(object, update: .all);
+//        handler?(object);
+//        })
+//    }
 }
 #endif
 #endif

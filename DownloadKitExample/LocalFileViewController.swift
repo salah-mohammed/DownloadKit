@@ -22,7 +22,7 @@ class LocalFileViewController: UIViewController {
     
     
     var downloadService:FileDownloadService?
-    
+    var resumeData:Data?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,6 @@ class LocalFileViewController: UIViewController {
         //https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
 //        downloadService =  FileDownloadService.init(url: URL.init(string:"http://android.quran.com/data/zips/images_1024.zip")!,.background)
         downloadService =  FileDownloadService.init(url:URL.init(string:"https://android.quran.com/data/zips/images_1024.zip")!);
-        downloadService?.autoSave=true;
         downloadService?.localFile = .downloads(folderName:"Quran/Images",localefileName:"images_1024", fileType:"zip")
 
         downloadService?.didReceive(didReceive: {
@@ -59,7 +58,9 @@ class LocalFileViewController: UIViewController {
         print(downloadService?.state?.rawValue)
     }
     @IBAction func btnStop(_ sender: Any) {
-        downloadService?.cancel(byProducingResumeData:nil);
+        downloadService?.cancel(byProducingResumeData:{ data in
+            self.resumeData = data;
+        });
         print(self.downloadService?.state?.rawValue)
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
             print(self.downloadService?.state?.rawValue)
@@ -100,11 +101,8 @@ class LocalFileViewController: UIViewController {
     }
     @IBAction func btnResumDownloadFromLocalFile(_ sender: Any) {
         var remoteUrl = URL.init(string:"https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4")!;
-        
-        
-        if let  url = self.downloadService!.localFileUrl {
-        var data = try? Data.init(contentsOf:url)
-        downloadService?.build(data: data!);
+        if let data:Data = self.resumeData {
+        downloadService?.build(data: data);
         downloadService?.resume();
         }
         print(downloadService?.state?.rawValue)

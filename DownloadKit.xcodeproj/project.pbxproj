@@ -25,6 +25,8 @@
 		4EDF6BE12504C650001CA7AF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDF6BDF2504C650001CA7AF /* MainStoryboard.storyboard */; };
 		8B534F1B28FF41E500EE0D2D /* BasicDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */; };
 		8B7E6AE5290E5EFA0099CF72 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E6AE4290E5EFA0099CF72 /* Download.swift */; };
+		8BB9E2642913B87600CA151A /* ParentFileDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9E2632913B87600CA151A /* ParentFileDownloadService.swift */; };
+		8BB9E2662913B8AF00CA151A /* BasicFileDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9E2652913B8AF00CA151A /* BasicFileDownloadService.swift */; };
 		8BF04CB72906722900EAEEAB /* DownloadKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF04CB62906722900EAEEAB /* DownloadKitManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		4EDF6BE02504C650001CA7AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDownloadManager.swift; sourceTree = "<group>"; };
 		8B7E6AE4290E5EFA0099CF72 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		8BB9E2632913B87600CA151A /* ParentFileDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentFileDownloadService.swift; sourceTree = "<group>"; };
+		8BB9E2652913B8AF00CA151A /* BasicFileDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicFileDownloadService.swift; sourceTree = "<group>"; };
 		8BF04CB62906722900EAEEAB /* DownloadKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadKitManager.swift; sourceTree = "<group>"; };
 		A14EDB158D0794DB74BC05DE /* Pods-DownloadKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownloadKit.release.xcconfig"; path = "Target Support Files/Pods-DownloadKit/Pods-DownloadKit.release.xcconfig"; sourceTree = "<group>"; };
 		A6154C57046C06B6BE2806F5 /* Pods-DownloadKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownloadKitExample.debug.xcconfig"; path = "Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,10 +140,12 @@
 				4E2368062503C03100977D7F /* DownloadKit.h */,
 				4E2368352503C5F000977D7F /* LibararyExtension.swift */,
 				8BF04CB62906722900EAEEAB /* DownloadKitManager.swift */,
+				4E2368262503C0BA00977D7F /* FileDownloadService.swift */,
+				4E2368282503C0BA00977D7F /* DownloadService.swift */,
 				4E2368272503C0BA00977D7F /* DownloadManager.swift */,
 				8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */,
-				4E2368282503C0BA00977D7F /* DownloadService.swift */,
-				4E2368262503C0BA00977D7F /* FileDownloadService.swift */,
+				8BB9E2652913B8AF00CA151A /* BasicFileDownloadService.swift */,
+				8BB9E2632913B87600CA151A /* ParentFileDownloadService.swift */,
 				8B7E6AE4290E5EFA0099CF72 /* Download.swift */,
 				4E23682C2503C0D600977D7F /* Resources */,
 			);
@@ -366,8 +372,10 @@
 				4E2368292503C0BA00977D7F /* FileDownloadService.swift in Sources */,
 				4E23682A2503C0BA00977D7F /* DownloadManager.swift in Sources */,
 				8BF04CB72906722900EAEEAB /* DownloadKitManager.swift in Sources */,
+				8BB9E2642913B87600CA151A /* ParentFileDownloadService.swift in Sources */,
 				8B7E6AE5290E5EFA0099CF72 /* Download.swift in Sources */,
 				4E23682B2503C0BA00977D7F /* DownloadService.swift in Sources */,
+				8BB9E2662913B8AF00CA151A /* BasicFileDownloadService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
