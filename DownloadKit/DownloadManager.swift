@@ -11,7 +11,7 @@ import UIKit
 open class DownloadManager: NSObject {
     open var items:[FileDownloadService]=[FileDownloadService]();
     public static let shared: DownloadManager = { DownloadManager()} ()
-
+    var downloadIndex:Int?;
     public override init() {
         super.init()
        
@@ -46,5 +46,21 @@ open class DownloadManager: NSObject {
             return fileDownloadService;
         }
         return nil
+    }
+    func downloadAll(){
+        self.items.first?.resume();
+        downloadIndex = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(DownloadManager.finish(_:)), name:Notification.Name.DidFinishDownloadingTo, object: nil)
+
+    }
+    @objc func finish(_ notification:NSNotification){
+        if let notification:FileDownloadService=notification.object as? FileDownloadService{
+            if let downloadIndex:Int = self.downloadIndex{
+                if  (downloadIndex+1) < self.items.count{
+                    self.downloadIndex = downloadIndex+1
+                    self.items[downloadIndex].resume();
+                }
+            }
+        }
     }
 }

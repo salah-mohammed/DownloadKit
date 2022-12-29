@@ -62,7 +62,7 @@ open class ParentFileDownloadService: NSObject,URLSessionDelegate,URLSessionDown
        }
    }
     func finishSucess(_ localFile:URL){
-        NotificationCenter.default.post(name: .DidFinishDownloadingTo, object: nil)
+        NotificationCenter.default.post(name: .DidFinishDownloadingTo, object: self)
         didFinishDownloadingTo?(localFile);
     }
     func finishWithError(error:Error?){
