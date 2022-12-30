@@ -84,7 +84,8 @@ open class ParentFileDownloadService: NSObject,URLSessionDelegate,URLSessionDown
    }
    open var url:URL?
    private var session:URLSession?
-   private var dataTask:URLSessionDownloadTask?
+    // URLSessionDownloadTask should be private
+   open var dataTask:URLSessionDownloadTask?
    open var threadType:ThreadType = .main{
        didSet{
            if threadType == .background{
