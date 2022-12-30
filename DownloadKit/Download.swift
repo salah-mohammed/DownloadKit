@@ -24,6 +24,7 @@ open class Download: Object {
     @objc dynamic open var recivedBytesCount:Int = 0
     @objc dynamic open var totalBytesCount:Int = 0
     @objc dynamic open var url:String="";
+    @objc dynamic open var cacheUrl:String="";
     @objc dynamic open var localFileStringUrl:String="";
     @objc dynamic open var featureName:String=AppDownloadManager.defaultFeatureName;
     //
