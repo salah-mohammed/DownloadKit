@@ -13,6 +13,9 @@ import Realm
 import RealmSwift
 public let defaultAppDownloadManager = AppDownloadManager.init(featureName:AppDownloadManager.defaultFeatureName)
 open class AppDownloadManager: NSObject {
+    // Bool
+    public typealias DownloadAllFinishedHandler = ()->Void
+    public var downloadAllFinishedHandler:DownloadAllFinishedHandler?
     public typealias DownloadData = (Download.Status?,CGFloat?,URLSessionTask.State?)
     public typealias DownloadDataConfig = (Download.Status?,CGFloat?,URLSessionTask.State?) -> Void
     var downloadIndex:Int?;
@@ -204,6 +207,8 @@ open class AppDownloadManager: NSObject {
                         }else{
                             newFileService.resume();
                         }
+                }else{
+                    self.downloadAllFinishedHandler?();
                 }
             }
 //        }
