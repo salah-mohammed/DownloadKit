@@ -22,7 +22,7 @@ open class DownloadManager: NSObject {
             }
         }
     }
-    open func addfileService(featureName:String?=Download.defaultFeatureName,_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
+    open func addfileService(featureName:String?=AppDownloadManager.defaultFeatureName,_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
         if let url :URL = url{
             var fileDownloadService:FileDownloadService? = self.items.first(where: { (item) -> Bool in
                 return item.url==url
@@ -37,7 +37,7 @@ open class DownloadManager: NSObject {
         }
         return nil;
     }
-    open func fileService(featureName:String?=Download.defaultFeatureName,_ remoteUrl:URL?)->FileDownloadService?{
+    open func fileService(featureName:String?=AppDownloadManager.defaultFeatureName,_ remoteUrl:URL?)->FileDownloadService?{
         if let remoteUrl :URL = remoteUrl{
             let fileDownloadService:FileDownloadService? = self.items.first(where: { (item) -> Bool in
                 return item.url==remoteUrl && item.featureName==featureName

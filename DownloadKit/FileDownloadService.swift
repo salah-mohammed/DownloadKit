@@ -15,6 +15,7 @@ extension Notification.Name {
 
 }
 public let DownloadKitDefaultFolderName = "Downloads"
+
 open class FileDownloadService:ParentFileDownloadService{
     var featureName:String?
     open var localFileUrl:URL?{

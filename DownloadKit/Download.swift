@@ -15,7 +15,6 @@ open class Download: Object {
     open var percentageDownloaded:Float{
         return  Float(recivedBytesCount) / Float(totalBytesCount);
     }
-    public static let defaultFeatureName="default";
     public enum Status{
     case notDownloaded
     case downloaded
@@ -26,7 +25,7 @@ open class Download: Object {
     @objc dynamic open var totalBytesCount:Int = 0
     @objc dynamic open var url:String="";
     @objc dynamic open var localFileStringUrl:String="";
-    @objc dynamic open var featureName:String=Download.defaultFeatureName;
+    @objc dynamic open var featureName:String=AppDownloadManager.defaultFeatureName;
     //
     @objc dynamic open var intObject1:Int=0;
     @objc dynamic open var intObject2:Int=0;
@@ -68,7 +67,7 @@ open class Download: Object {
     }
     public static func IncrementaID() -> Int?{
        
-        if let realm = DownloadKitManager.shared.realm{
+        if let realm = AppDownloadManager.realm{
         let RetNext: NSArray = Array(realm.objects(self).sorted(byKeyPath:"id")) as NSArray;
         let last:Download? = RetNext.lastObject as? Download
         if RetNext.count > 0 {
@@ -80,17 +79,17 @@ open class Download: Object {
         }
         }else{return nil}
     }
-    public static func download(_ featureName:String?=Download.defaultFeatureName,remoteUrl:String)->Download?{
-        var object = DownloadKitManager.shared.realm?.objects(Download.self).filter({ (item) -> Bool in
-            return remoteUrl == item.url && (featureName ?? Download.defaultFeatureName) == item.featureName
+    public static func download(_ featureName:String?=AppDownloadManager.defaultFeatureName,remoteUrl:String)->Download?{
+        var object = AppDownloadManager.realm?.objects(Download.self).filter({ (item) -> Bool in
+            return remoteUrl == item.url && (featureName ?? AppDownloadManager.defaultFeatureName) == item.featureName
         }).first;
         if object == nil{
-        DownloadKitManager.shared.realm?.bs_write({ (realm) in
+        AppDownloadManager.realm?.bs_write({ (realm) in
         if object == nil,let id:Int = Download.IncrementaID() {
                object = Download();
                object?.id = id
                object?.url = remoteUrl
-               object?.featureName = featureName ?? Download.defaultFeatureName
+               object?.featureName = featureName ?? AppDownloadManager.defaultFeatureName
             realm.add(object!, update: .all);
            }
         })
@@ -98,7 +97,7 @@ open class Download: Object {
         return object;
     }
     open func update(totalBytesCount:Int,_ recivedBytesCount:Int,handler:((Download)->Void)?){
-        DownloadKitManager.shared.realm?.bs_write({ (realm) in
+        AppDownloadManager.realm?.bs_write({ (realm) in
         var object:Download=self
         object.totalBytesCount = totalBytesCount
         object.recivedBytesCount = recivedBytesCount
@@ -107,7 +106,7 @@ open class Download: Object {
         })
     }
     open func update(_ localFileUrl:URL,handler:((Download)->Void)?){
-        DownloadKitManager.shared.realm?.bs_write({ (realm) in
+        AppDownloadManager.realm?.bs_write({ (realm) in
         var object:Download=self
         object.localFileStringUrl = localFileUrl.path
         realm.add(object, update: .all);

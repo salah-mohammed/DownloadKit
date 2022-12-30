@@ -26,12 +26,12 @@ class ContentViewModel:NSObject,ObservableObject{
     }
     func url(stringUrl:String)->QuranItemViewModel{
         var url = URL.init(string: stringUrl)!
-        var downloadConfig = DownloadKitManager.shared.downloadConfig(remoteUrl:url)
+        var downloadConfig = defaultAppDownloadManager.downloadConfig(remoteUrl:url)
         var item = QuranItemViewModel.init(progress: 0, url:url, status:.notDownloaded);
         item.status = downloadConfig.0
         item.progress = downloadConfig.1 ?? 0.0
         DownloadManager.shared.addfileService(url, localFile: item.localFile())
-        DownloadKitManager.shared.downloadConfig(remoteUrl: url) { status, progress, fileState in
+        defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fileState in
             item.progress=(progress ?? 0.0)
             item.status=status
         }

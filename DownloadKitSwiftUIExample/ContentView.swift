@@ -13,13 +13,10 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-       
-            
             List {
                 Section {
                     Button.init {
-                        DownloadKitManager.shared.downloadAll();
-
+                        defaultAppDownloadManager.downloadAll();
                     } label: {
                         Text("Download All")
                     }

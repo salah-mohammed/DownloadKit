@@ -58,7 +58,7 @@ class QuranItemViewModel:NSObject,ObservableObject{
     func donwload(object:QuranItemViewModel)->Action{
         let action = {
             if let  remoteUrl:URL = object.genrateQuranRemoteUrl(){
-                DownloadKitManager.shared.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in
+                defaultAppDownloadManager.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in
                     self.progress = progressValue ?? 0.0
                     self.status = status
                 }

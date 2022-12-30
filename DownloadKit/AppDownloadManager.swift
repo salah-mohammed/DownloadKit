@@ -11,43 +11,50 @@ import UIKit
 #if canImport(RealmSwift)
 import Realm
 import RealmSwift
-open class DownloadKitManager: NSObject {
+public let defaultAppDownloadManager = AppDownloadManager.init(featureName:AppDownloadManager.defaultFeatureName)
+open class AppDownloadManager: NSObject {
     public typealias DownloadData = (Download.Status?,CGFloat?,URLSessionTask.State?)
     public typealias DownloadDataConfig = (Download.Status?,CGFloat?,URLSessionTask.State?) -> Void
-    var realm:Realm?
-    public static let shared: DownloadKitManager = { DownloadKitManager()} ()
+//    public static let shared: DownloadKitManager = { DownloadKitManager()} ()
     var downloadIndex:Int?;
     var donwloadAllIsActive:Bool=false{
         didSet{
             if donwloadAllIsActive{
-                NotificationCenter.default.addObserver(self, selector: #selector(DownloadKitManager.finish(_:)), name:Notification.Name.DidFinishDownloadingTo, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(AppDownloadManager.finish(_:)), name:Notification.Name.DidFinishDownloadingTo, object: nil)
             }else{
                 NotificationCenter.default.removeObserver(self)
             }
         }
     }
-    override init() {
-        super.init()
+    var featureName:String
+    public static let defaultFeatureName="default";
+
+    public static var realm:Realm?
+     init(featureName:String) {
+         self.featureName=featureName;
+         if AppDownloadManager.realm == nil {
+             AppDownloadManager.realmSetup();
+         }
+    }
+    static func realmSetup(){
         var config = Realm.Configuration()
         config.fileURL = config.fileURL?.deletingLastPathComponent().appendingPathComponent("DownloadKit.realm")
         autoreleasepool {
             do {
-                self.realm = try? Realm(configuration: config)
+                AppDownloadManager.realm = try? Realm(configuration: config)
             }catch let error as NSError {
                 
             }
         }
     }
     // use for actions only don't use handlers
-    open func downloadData(_ featureName:String?=Download.defaultFeatureName,
-remoteUrl:URL)->(Download?,FileDownloadService?){
+    open func downloadData(remoteUrl:URL)->(Download?,FileDownloadService?){
     let download:Download? = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
     let fileDownloadService:FileDownloadService? = DownloadManager.shared.fileService(remoteUrl)
     return (download,fileDownloadService)
 }
     
-    open func downloadConfig(_ featureName:String?=Download.defaultFeatureName,
-                         remoteUrl:URL)->DownloadData{
+    open func downloadConfig(remoteUrl:URL)->DownloadData{
         if let download:Download = Download.download(featureName,remoteUrl:remoteUrl.absoluteString){
             if let downloadService = DownloadManager.shared.fileService(remoteUrl){
                 let value = downloadService.percentageDownloaded.bs_cgFloat
@@ -59,7 +66,7 @@ remoteUrl:URL)->(Download?,FileDownloadService?){
             return (.notDownloaded,nil,nil)
         }
     }
-    func download(_ old:Download?,_ featureName:String?=Download.defaultFeatureName,
+    func download(_ old:Download?,
                      remoteUrl:URL)->Download?{
         if let value:Download = old{
           return value
@@ -67,25 +74,25 @@ remoteUrl:URL)->(Download?,FileDownloadService?){
         return Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
         }
     }
-    open func downloadConfig(_ featureName:String?=Download.defaultFeatureName,
+    open func downloadConfig(_ featureName:String?=AppDownloadManager.defaultFeatureName,
                          remoteUrl:URL,
                          status:@escaping DownloadDataConfig){
         var download:Download? = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
         let downloadService:FileDownloadService? = DownloadManager.shared.fileService(remoteUrl)
         if let downloadService:FileDownloadService = downloadService{
             downloadService.didReceive(didReceive: {
-                download = self.download(download,featureName,remoteUrl:remoteUrl)
+                download = self.download(download,remoteUrl:remoteUrl)
                 download?.update(totalBytesCount:downloadService.totalBytesExpectedToWrite.bs_int,downloadService.totalBytesWritten.bs_int, handler: nil);
                 let value = downloadService.percentageDownloaded.bs_cgFloat
                 status(download?.status,value,downloadService.state)
             })
             downloadService.didFinishDownloadingTo({ (url) in
-                download = self.download(download,featureName,remoteUrl:remoteUrl)
+                download = self.download(download,remoteUrl:remoteUrl)
                 download?.update(url, handler: nil);
                 status(.downloaded,1.0,downloadService.state)
             })
             downloadService.didFinishDownloadingWithError { (error) in
-                download = self.download(download,featureName,remoteUrl:remoteUrl)
+                download = self.download(download,remoteUrl:remoteUrl)
                 let value = downloadService.percentageDownloaded.bs_cgFloat
                 status(download?.status,value,downloadService.state)
             }
@@ -102,7 +109,7 @@ remoteUrl:URL)->(Download?,FileDownloadService?){
         }
     }
     //_ a:FileDownloadService.DidReceive
-    open func downloadAction(_ featureName:String?=Download.defaultFeatureName,
+    open func downloadAction(_ featureName:String?=AppDownloadManager.defaultFeatureName,
                 remoteUrl:URL,
                 localFile:FileDownloadService.LocalFile,
                 status:@escaping DownloadDataConfig){
@@ -110,18 +117,18 @@ remoteUrl:URL)->(Download?,FileDownloadService?){
         var downloadService = DownloadManager.shared.addfileService(remoteUrl, localFile:localFile)
 
         downloadService?.didReceive(didReceive: {
-            download = self.download(download,featureName,remoteUrl:remoteUrl)
+            download = self.download(download,remoteUrl:remoteUrl)
             download?.update(totalBytesCount:(downloadService?.totalBytesExpectedToWrite ?? 0).bs_int, (downloadService?.totalBytesWritten ?? 0).bs_int, handler: nil);
             let value = downloadService?.percentageDownloaded.bs_cgFloat
             status(download?.status,value,downloadService?.state)
         })
         downloadService?.didFinishDownloadingTo({ (url) in
-            download = self.download(download,featureName,remoteUrl:remoteUrl)
+            download = self.download(download,remoteUrl:remoteUrl)
             download?.update(url, handler: nil);
             status(.downloaded,1.0,downloadService?.state)
         })
         downloadService?.didFinishDownloadingWithError { (error) in
-            download = self.download(download,featureName,remoteUrl:remoteUrl)
+            download = self.download(download,remoteUrl:remoteUrl)
             let value = downloadService?.percentageDownloaded.bs_cgFloat
             status(download?.status,value,downloadService?.state)
         }
