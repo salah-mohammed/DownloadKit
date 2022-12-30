@@ -33,6 +33,7 @@
 		8B14C501295EEEA1004E04F3 /* DownloadKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2368032503C03100977D7F /* DownloadKit.framework */; platformFilter = ios; };
 		8B14C502295EEEA1004E04F3 /* DownloadKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2368032503C03100977D7F /* DownloadKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B14C507295EEF17004E04F3 /* QuranItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14C506295EEF17004E04F3 /* QuranItemView.swift */; };
+		8B14C50B295F4835004E04F3 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14C50A295F4835004E04F3 /* CacheManager.swift */; };
 		8B534F1B28FF41E500EE0D2D /* BasicDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */; };
 		8B7E6AE5290E5EFA0099CF72 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E6AE4290E5EFA0099CF72 /* Download.swift */; };
 		8BB9E2642913B87600CA151A /* ParentFileDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9E2632913B87600CA151A /* ParentFileDownloadService.swift */; };
@@ -114,6 +115,7 @@
 		8B14C4FD295EE7D5004E04F3 /* DonwloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonwloadButton.swift; sourceTree = "<group>"; };
 		8B14C4FF295EEAC8004E04F3 /* QuranItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuranItemViewModel.swift; sourceTree = "<group>"; };
 		8B14C506295EEF17004E04F3 /* QuranItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuranItemView.swift; sourceTree = "<group>"; };
+		8B14C50A295F4835004E04F3 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDownloadManager.swift; sourceTree = "<group>"; };
 		8B7E6AE4290E5EFA0099CF72 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		8BB9E2632913B87600CA151A /* ParentFileDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentFileDownloadService.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				4E2368272503C0BA00977D7F /* DownloadManager.swift */,
 				8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */,
 				8BF04CB62906722900EAEEAB /* AppDownloadManager.swift */,
+				8B14C50A295F4835004E04F3 /* CacheManager.swift */,
 			);
 			path = DownloadKit;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				4E23682A2503C0BA00977D7F /* DownloadManager.swift in Sources */,
 				8BF04CB72906722900EAEEAB /* AppDownloadManager.swift in Sources */,
 				8BB9E2642913B87600CA151A /* ParentFileDownloadService.swift in Sources */,
+				8B14C50B295F4835004E04F3 /* CacheManager.swift in Sources */,
 				8B7E6AE5290E5EFA0099CF72 /* Download.swift in Sources */,
 				4E23682B2503C0BA00977D7F /* DownloadService.swift in Sources */,
 				8BB9E2662913B8AF00CA151A /* BasicFileDownloadService.swift in Sources */,

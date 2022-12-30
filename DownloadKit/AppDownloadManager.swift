@@ -15,11 +15,10 @@ public let defaultAppDownloadManager = AppDownloadManager.init(featureName:AppDo
 open class AppDownloadManager: NSObject {
     public typealias DownloadData = (Download.Status?,CGFloat?,URLSessionTask.State?)
     public typealias DownloadDataConfig = (Download.Status?,CGFloat?,URLSessionTask.State?) -> Void
-//    public static let shared: DownloadKitManager = { DownloadKitManager()} ()
     var downloadIndex:Int?;
     var donwloadAllIsActive:Bool=false{
         didSet{
-            if donwloadAllIsActive{
+            if oldValue==false&&donwloadAllIsActive{
                 NotificationCenter.default.addObserver(self, selector: #selector(AppDownloadManager.finish(_:)), name:Notification.Name.DidFinishDownloadingTo, object: nil)
             }else{
                 NotificationCenter.default.removeObserver(self)
@@ -38,6 +37,7 @@ open class AppDownloadManager: NSObject {
     }
     static func realmSetup(){
         var config = Realm.Configuration()
+        config.deleteRealmIfMigrationNeeded=true;
         config.fileURL = config.fileURL?.deletingLastPathComponent().appendingPathComponent("DownloadKit.realm")
         autoreleasepool {
             do {
@@ -178,9 +178,7 @@ open class AppDownloadManager: NSObject {
         }
     }
     open func downloadAll(){
-        if donwloadAllIsActive==false{
-            donwloadAllIsActive=true;
-        }
+        donwloadAllIsActive=true;
         self.downloadFirstNotDownloaded();
     }
     func downloadFirstNotDownloaded(){
