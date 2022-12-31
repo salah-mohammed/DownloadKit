@@ -80,7 +80,7 @@ open class Download: Object {
         }
         }else{return nil}
     }
-    public static func download(_ featureName:String?=AppDownloadManager.defaultFeatureName,remoteUrl:String)->Download?{
+    public static func download(_ featureName:String?,remoteUrl:String)->Download?{
         var object = AppDownloadManager.realm?.objects(Download.self).filter({ (item) -> Bool in
             return remoteUrl == item.url && (featureName ?? AppDownloadManager.defaultFeatureName) == item.featureName
         }).first;

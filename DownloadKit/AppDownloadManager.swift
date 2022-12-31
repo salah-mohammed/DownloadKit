@@ -80,8 +80,7 @@ open class AppDownloadManager: NSObject {
         return Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
         }
     }
-    open func downloadConfig(_ featureName:String?=AppDownloadManager.defaultFeatureName,
-                         remoteUrl:URL,
+    open func downloadConfig(remoteUrl:URL,
                          status:@escaping DownloadDataConfig){
         var download:Download? = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
         let downloadService:FileDownloadService? = DownloadManager.shared.fileService(featureName:self.featureName,remoteUrl)
@@ -115,12 +114,11 @@ open class AppDownloadManager: NSObject {
         }
     }
     //_ a:FileDownloadService.DidReceive
-    open func downloadAction(_ featureName:String?=AppDownloadManager.defaultFeatureName,
-                remoteUrl:URL,
+    open func downloadAction(remoteUrl:URL,
                 localFile:FileDownloadService.LocalFile,
                 status:@escaping DownloadDataConfig){
         var download = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
-        var downloadService = DownloadManager.shared.addfileService(remoteUrl, localFile:localFile)
+        var downloadService = DownloadManager.shared.addfileService(featureName:self.featureName, remoteUrl, localFile:localFile)
 
         downloadService?.didReceive(didReceive: {
             download = self.download(download,remoteUrl:remoteUrl)
@@ -182,6 +180,9 @@ open class AppDownloadManager: NSObject {
                 break;
             }
         }
+    }
+    public func download(remoteUrl:String)->Download?{
+        return Download.download(self.featureName,remoteUrl: remoteUrl)
     }
     open func addfileService(_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
         return  DownloadManager.shared.addfileService(featureName:self.featureName,url, localFile:localFile);
