@@ -56,13 +56,13 @@ open class AppDownloadManager: NSObject {
     // use for actions only don't use handlers
     open func downloadData(remoteUrl:URL)->(Download?,FileDownloadService?){
     let download:Download? = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
-    let fileDownloadService:FileDownloadService? = DownloadManager.shared.fileService(remoteUrl)
+        let fileDownloadService:FileDownloadService? = DownloadManager.shared.fileService(featureName:self.featureName,remoteUrl)
     return (download,fileDownloadService)
 }
     
     open func downloadConfig(remoteUrl:URL)->DownloadData{
         if let download:Download = Download.download(featureName,remoteUrl:remoteUrl.absoluteString){
-            if let downloadService = DownloadManager.shared.fileService(remoteUrl){
+            if let downloadService = DownloadManager.shared.fileService(featureName:self.featureName,remoteUrl){
                 let value = downloadService.percentageDownloaded.bs_cgFloat
                 return (download.status,value,downloadService.state)
             }else{
@@ -84,7 +84,7 @@ open class AppDownloadManager: NSObject {
                          remoteUrl:URL,
                          status:@escaping DownloadDataConfig){
         var download:Download? = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
-        let downloadService:FileDownloadService? = DownloadManager.shared.fileService(remoteUrl)
+        let downloadService:FileDownloadService? = DownloadManager.shared.fileService(featureName:self.featureName,remoteUrl)
         if let downloadService:FileDownloadService = downloadService{
             downloadService.didReceive(didReceive: {
                 download = self.download(download,remoteUrl:remoteUrl)
@@ -182,6 +182,9 @@ open class AppDownloadManager: NSObject {
                 break;
             }
         }
+    }
+    open func addfileService(_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
+        return  DownloadManager.shared.addfileService(featureName:self.featureName,url, localFile:localFile);
     }
     open func downloadAll(){
         let items = fileDownloadServices;
