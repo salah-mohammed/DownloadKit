@@ -19,7 +19,7 @@ open class AppDownloadManager: NSObject {
     public typealias DownloadData = (Download.Status?,CGFloat?,URLSessionTask.State?)
     public typealias DownloadDataConfig = (Download.Status?,CGFloat?,URLSessionTask.State?) -> Void
     var downloadIndex:Int?;
-    var donwloadAllIsActive:Bool=false{
+    public var donwloadAllIsActive:Bool=false{
         didSet{
             if oldValue==false&&donwloadAllIsActive{
                 NotificationCenter.default.addObserver(self, selector: #selector(AppDownloadManager.finish(_:)), name:Notification.Name.DidFinishDownloadingTo, object: nil)
@@ -32,7 +32,7 @@ open class AppDownloadManager: NSObject {
     public static let defaultFeatureName="default";
 
     public static var realm:Realm?
-     init(featureName:String) {
+     public init(featureName:String) {
          self.featureName=featureName;
          if AppDownloadManager.realm == nil {
              AppDownloadManager.realmSetup();
