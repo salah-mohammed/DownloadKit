@@ -38,6 +38,9 @@ open class AppDownloadManager: NSObject {
              AppDownloadManager.realmSetup();
          }
     }
+    public var fileDownloadServices:[FileDownloadService]{
+        return DownloadManager.shared.items.filter({$0.featureName==self.featureName})
+    }
     static func realmSetup(){
         var config = Realm.Configuration()
         config.deleteRealmIfMigrationNeeded=true;
@@ -181,12 +184,14 @@ open class AppDownloadManager: NSObject {
         }
     }
     open func downloadAll(){
+        let items = fileDownloadServices;
+        if items.count > 0{
         donwloadAllIsActive=true;
-        self.downloadFirstNotDownloaded();
+        self.downloadFirstNotDownloaded(items);
+        }
     }
-    func downloadFirstNotDownloaded(){
-        let items = DownloadManager.shared.items
-        var notDownlaodedService = items.first { service in
+    func downloadFirstNotDownloaded(_ items:[FileDownloadService]){
+        let notDownlaodedService = items.first { service in
             let download = Download.download(service.featureName,remoteUrl:service.url!.absoluteString)
             return download?.status != .downloaded
         }
@@ -195,7 +200,7 @@ open class AppDownloadManager: NSObject {
     }
     @objc func finish(_ notification:NSNotification){
         
-        let  items = DownloadManager.shared.items;
+        let items = self.fileDownloadServices
 //        if let notification:FileDownloadService=notification.object as? FileDownloadService{
             if let oldIndex:Int = self.downloadIndex{
                 if  (oldIndex+1) < items.count{
