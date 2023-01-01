@@ -28,7 +28,7 @@ open class AppDownloadManager: NSObject {
             }
         }
     }
-    var featureName:String
+    public var featureName:String
     public static let defaultFeatureName="default";
 
     public static var realm:Realm?

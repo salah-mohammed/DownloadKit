@@ -30,7 +30,7 @@ class ContentViewModel:NSObject,ObservableObject{
         var item = QuranItemViewModel.init(progress: 0, url:url, status:.notDownloaded);
         item.status = downloadConfig.0
         item.progress = downloadConfig.1 ?? 0.0
-        DownloadManager.shared.addfileService(url, localFile: item.localFile())
+        DownloadManager.shared.addfileService(featureName: <#String?#>, url, localFile: item.localFile())
         defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fileState in
             item.progress=(progress ?? 0.0)
             item.status=status
