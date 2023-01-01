@@ -101,17 +101,23 @@ extension String{
     }
 }
 extension URL {
-func equalRemoteUrl(_ url:URL?)->Bool{
-        var firstStringUrl = self.absoluteString
-        if var secondStringUrl:String = url?.absoluteString{
-            let firstUrlPrefix = String(firstStringUrl.prefix(4))
-            let secondUrlPrefix = String(secondStringUrl.prefix(4))
-            firstStringUrl=firstStringUrl.replace(target: firstUrlPrefix, withString:"https")
-            secondStringUrl=secondStringUrl.replace(target: secondUrlPrefix, withString:"https")
-           return firstStringUrl == secondStringUrl
-        }
-        return false;
-}
+    func equalRemoteUrl(_ url:URL?)->Bool{
+            var firstStringUrl = self.absoluteString
+            if var secondStringUrl:String = url?.absoluteString{
+                let firstUrlPrefix = String(firstStringUrl.prefix(5))
+                let secondUrlPrefix = String(secondStringUrl.prefix(5))
+                if firstUrlPrefix.lowercased() == "https"{
+                }else{
+                    firstStringUrl=firstStringUrl.replace(target: String(firstStringUrl.prefix(4)), withString:"https")
+                }
+                if secondUrlPrefix.lowercased() == "https"{
+                }else{
+                    secondStringUrl=secondStringUrl.replace(target: String(secondStringUrl.prefix(4)), withString:"https")
+                }
+               return firstStringUrl == secondStringUrl
+            }
+            return false;
+    }
 }
 
 #if canImport(Realm)

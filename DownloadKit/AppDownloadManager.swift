@@ -30,6 +30,7 @@ open class AppDownloadManager: NSObject {
     }
     public var featureName:String
     public static let defaultFeatureName="default";
+    var  downloadManager = DownloadManager.init();
 
     public static var realm:Realm?
      public init(featureName:String) {
@@ -39,7 +40,7 @@ open class AppDownloadManager: NSObject {
          }
     }
     public var fileDownloadServices:[FileDownloadService]{
-        return DownloadManager.shared.items.filter({$0.featureName==self.featureName})
+        return downloadManager.items.filter({$0.featureName==self.featureName})
     }
     static func realmSetup(){
         var config = Realm.Configuration()
@@ -56,13 +57,13 @@ open class AppDownloadManager: NSObject {
     // use for actions only don't use handlers
     open func downloadData(remoteUrl:URL)->(Download?,FileDownloadService?){
     let download:Download? = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
-        let fileDownloadService:FileDownloadService? = DownloadManager.shared.fileService(featureName:self.featureName,remoteUrl)
+        let fileDownloadService:FileDownloadService? = downloadManager.fileService(featureName:self.featureName,remoteUrl)
     return (download,fileDownloadService)
 }
     
     open func downloadConfig(remoteUrl:URL)->DownloadData{
         if let download:Download = Download.download(featureName,remoteUrl:remoteUrl.absoluteString){
-            if let downloadService = DownloadManager.shared.fileService(featureName:self.featureName,remoteUrl){
+            if let downloadService = downloadManager.fileService(featureName:self.featureName,remoteUrl){
                 let value = downloadService.percentageDownloaded.bs_cgFloat
                 return (download.status,value,downloadService.state)
             }else{
@@ -83,7 +84,7 @@ open class AppDownloadManager: NSObject {
     open func downloadConfig(remoteUrl:URL,
                          status:@escaping DownloadDataConfig){
         var download:Download? = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
-        let downloadService:FileDownloadService? = DownloadManager.shared.fileService(featureName:self.featureName,remoteUrl)
+        let downloadService:FileDownloadService? = downloadManager.fileService(featureName:self.featureName,remoteUrl)
         if let downloadService:FileDownloadService = downloadService{
             downloadService.didReceive(didReceive: {
                 download = self.download(download,remoteUrl:remoteUrl)
@@ -118,7 +119,7 @@ open class AppDownloadManager: NSObject {
                 localFile:FileDownloadService.LocalFile,
                 status:@escaping DownloadDataConfig){
         var download = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
-        var downloadService = DownloadManager.shared.addfileService(featureName:self.featureName, remoteUrl, localFile:localFile)
+        var downloadService = downloadManager.addfileService(featureName:self.featureName, remoteUrl, localFile:localFile)
 
         downloadService?.didReceive(didReceive: {
             download = self.download(download,remoteUrl:remoteUrl)
@@ -185,7 +186,7 @@ open class AppDownloadManager: NSObject {
         return Download.download(self.featureName,remoteUrl: remoteUrl)
     }
     open func addfileService(_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
-        return  DownloadManager.shared.addfileService(featureName:self.featureName,url, localFile:localFile);
+        return  downloadManager.addfileService(featureName:self.featureName,url, localFile:localFile);
     }
     open func downloadAll(){
         let items = fileDownloadServices;
