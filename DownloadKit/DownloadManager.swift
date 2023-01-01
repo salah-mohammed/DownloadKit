@@ -10,7 +10,7 @@ import UIKit
 
 open class DownloadManager: NSObject {
     open var items:[FileDownloadService]=[FileDownloadService]();
-    public static let shared: DownloadManager = { DownloadManager()} ()
+//    public static let shared: DownloadManager = { DownloadManager()} ()
     public override init() {
         super.init()
        
@@ -22,14 +22,14 @@ open class DownloadManager: NSObject {
             }
         }
     }
-    open func addfileService(featureName:String?,_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
+    open func addfileService(_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
         if let url :URL = url{
             var fileDownloadService:FileDownloadService? = self.items.first(where: { (item) -> Bool in
-                return (item.url?.equalRemoteUrl(url) ?? false) && (item.featureName == featureName)
+                return (item.url?.equalRemoteUrl(url) ?? false)
             })
             if fileDownloadService == nil {
             fileDownloadService = FileDownloadService.init(url: url,.background);
-            fileDownloadService?.featureName=featureName
+//            fileDownloadService?.featureName=featureName
             fileDownloadService?.localFile = localFile
             self.items.append(fileDownloadService!);
             }
@@ -37,10 +37,10 @@ open class DownloadManager: NSObject {
         }
         return nil;
     }
-    open func fileService(featureName:String?,_ remoteUrl:URL?)->FileDownloadService?{
+    open func fileService(_ remoteUrl:URL?)->FileDownloadService?{
         if let remoteUrl :URL = remoteUrl{
             let fileDownloadService:FileDownloadService? = self.items.first(where: { (item) -> Bool in
-                return (item.url?.equalRemoteUrl(remoteUrl) ?? false) && item.featureName==featureName
+                return (item.url?.equalRemoteUrl(remoteUrl) ?? false)
             })
             return fileDownloadService;
         }
