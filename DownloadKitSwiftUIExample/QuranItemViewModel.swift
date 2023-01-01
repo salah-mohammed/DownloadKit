@@ -16,7 +16,7 @@ class QuranItemViewModel:NSObject,ObservableObject{
   
     func quranUrl()->URL?{
        if let url :URL = self.genrateQuranRemoteUrl(),
-           let download = Download.download(remoteUrl:url.absoluteString){
+           let download = defaultAppDownloadManager.download(remoteUrl:url.absoluteString){
            if download.status == .downloaded{
                // local url
 //               return  DownloadManager.shared.fetch(quranItem: self);

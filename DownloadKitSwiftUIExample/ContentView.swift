@@ -15,12 +15,13 @@ struct ContentView: View {
         ZStack {
             List {
                 Section {
-                    Button.init {
-                        defaultAppDownloadManager.downloadAll();
-                    } label: {
-                        Text("Download All")
+                    if viewModel.showDownload{
+                        Button.init {
+                            defaultAppDownloadManager.downloadAll();
+                        } label: {
+                            Text("Download All")
+                        }
                     }
-
                 }
             ForEach(viewModel.list, id: \.self) { item in
                 QuranItemView.init(viewModel: viewModel, rowViewModel: item)

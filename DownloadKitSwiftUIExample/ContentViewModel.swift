@@ -11,6 +11,8 @@ typealias Action = ()->Void
 class ContentViewModel:NSObject,ObservableObject{
     @Published  var adLoaded = false
     @Published  var list:[QuranItemViewModel] = [QuranItemViewModel].init()
+    @Published  var showDownload = false
+
     override init() {
         super.init();
         list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/001.mp3"))
@@ -30,10 +32,14 @@ class ContentViewModel:NSObject,ObservableObject{
         var item = QuranItemViewModel.init(progress: 0, url:url, status:.notDownloaded);
         item.status = downloadConfig.0
         item.progress = downloadConfig.1 ?? 0.0
-        DownloadManager.shared.addfileService(featureName: <#String?#>, url, localFile: item.localFile())
+        defaultAppDownloadManager.addfileService(url, localFile: item.localFile())
         defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fileState in
             item.progress=(progress ?? 0.0)
             item.status=status
+        }
+        self.showDownload = !defaultAppDownloadManager.donwloadAllIsActive
+        defaultAppDownloadManager.downloadAllIsActiveHandler = { value in
+            self.showDownload = !value
         }
         return item;
     }
