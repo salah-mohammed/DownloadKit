@@ -24,7 +24,6 @@ class ContentViewModel:NSObject,ObservableObject{
         list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/007.mp3"))
         list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/008.mp3"))
         list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/009.mp3"))
-
     }
     func url(stringUrl:String)->QuranItemViewModel{
         var url = URL.init(string: stringUrl)!

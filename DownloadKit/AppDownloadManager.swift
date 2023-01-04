@@ -32,11 +32,13 @@ open class AppDownloadManager: NSObject {
     }
     public var featureName:String
     public static let defaultFeatureName="default";
-    var  downloadManager = DownloadManager.init();
+    public var  downloadManager = DownloadManager.init();
+    public var  cacheManager:CacheManager
 
     public static var realm:Realm?
      public init(featureName:String) {
          self.featureName=featureName;
+         self.cacheManager = CacheManager.init(featureName);
          if AppDownloadManager.realm == nil {
              AppDownloadManager.realmSetup();
          }
@@ -147,25 +149,31 @@ open class AppDownloadManager: NSObject {
             case .downloaded:
                 break;
             case .downloading:
+                if let  url:URL = download.cacheUrl2 {
+                    do {
+                        let data:Data = try Data.init(base64Encoded: String.init(contentsOfFile:download.cacheUrl))!
+                        downloadService?.build(data: data);
+
+                    }catch{
+                        var errornew = error;
+                        var errornew2 = error;
+
+                    }
+                }
                 let downloadServiceStatus = downloadService?.state ?? .suspended
                     switch downloadServiceStatus {
                     case .running:
                         self.donwloadAllIsActive=false;
                         downloadService?.cancel(byProducingResumeData: { (data) in
                             if let data:Data = data{
-                                downloadService?.build(data: data);
+//                                downloadService?.build(data: data);
+                                var url = self.cacheManager.write(data:data, remoteUrl: downloadService?.url, locale: downloadService?.localFile)
+                                download.update(tempCacheUrl: url, handler: nil);
                             }
                             })
                         break;
                     case .suspended:
-//                        if let  url = downloadService?.localFileUrl {
-//                            if var data = try? Data.init(contentsOf:url) {
-//                                downloadService?.build(data: data);
-//                            }else{
-//                                downloadService?.build(url: remoteUrl);
-//                            }
-//                            downloadService?.resume();
-//                            }
+ 
                         if downloadService?.dataTask?.error != nil {
                             downloadService?.build(url: remoteUrl);
                         }
@@ -229,20 +237,3 @@ open class AppDownloadManager: NSObject {
 
 #endif
 #endif
-
-extension Int64 {
-    public var bs_int:Int
-    {
-        return Int.init(self);
-    }
-    public var bs_cgFloat:CGFloat{
-        return  CGFloat.init(self)
-    }
-    
-    
-}
-extension Float{
-    public var bs_cgFloat:CGFloat?{
-        return CGFloat(self);
-    }
-}

@@ -37,6 +37,9 @@ open class Download: Object {
     @objc dynamic open var doubleObject1:Double=0.0;
     @objc dynamic open var doubleObject2:Double=0.0;
     @objc dynamic open var sessionTask:Int = -1;
+    var cacheUrl2:URL?{
+        return URL.init(fileURLWithPath: cacheUrl, isDirectory: true, relativeTo: nil);
+    }
 //    var sessionTaskStatus:URLSessionTask.State?{
 //        if sessionTask != -1{
 //            return URLSessionTask.State.init(rawValue:sessionTask)
@@ -102,6 +105,15 @@ open class Download: Object {
         var object:Download=self
         object.totalBytesCount = totalBytesCount
         object.recivedBytesCount = recivedBytesCount
+        realm.add(object, update: .all);
+        handler?(object);
+        })
+    }
+
+    open func update(tempCacheUrl:URL?,handler:((Download)->Void)?){
+        AppDownloadManager.realm?.bs_write({ (realm) in
+        var object:Download=self
+            object.cacheUrl = tempCacheUrl?.path ?? ""
         realm.add(object, update: .all);
         handler?(object);
         })
