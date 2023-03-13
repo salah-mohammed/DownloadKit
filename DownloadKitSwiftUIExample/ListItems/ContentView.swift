@@ -9,7 +9,7 @@
 import SwiftUI
 import DownloadKit
 struct ContentView: View {
-    @StateObject var viewModel = ContentViewModel()
+    @StateObject var viewModel = ListItemsViewModel()
 
     var body: some View {
         ZStack {
@@ -24,7 +24,7 @@ struct ContentView: View {
                     }
                 }
             ForEach(viewModel.list, id: \.self) { item in
-                QuranItemView.init(viewModel: viewModel, rowViewModel: item)
+                ListItemView.init(viewModel: viewModel, rowViewModel: item)
             }
             }
             .listStyle(PlainListStyle())

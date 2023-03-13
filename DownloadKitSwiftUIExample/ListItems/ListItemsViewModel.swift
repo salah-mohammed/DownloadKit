@@ -1,5 +1,5 @@
 //
-//  ContentViewModel.swift
+//  ListItemsViewModel.swift
 //  DownloadKitSwiftUIExample
 //
 //  Created by SalahMohamed on 30/12/2022.
@@ -8,9 +8,9 @@
 import Foundation
 import DownloadKit
 typealias Action = ()->Void
-class ContentViewModel:NSObject,ObservableObject{
+class ListItemsViewModel:NSObject,ObservableObject{
     @Published  var adLoaded = false
-    @Published  var list:[QuranItemViewModel] = [QuranItemViewModel].init()
+    @Published  var list:[SoundItemViewModel] = [SoundItemViewModel].init()
     @Published  var showDownload = false
 
     override init() {
@@ -26,10 +26,10 @@ class ContentViewModel:NSObject,ObservableObject{
         list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/009.mp3"))
 
     }
-    func url(stringUrl:String)->QuranItemViewModel{
+    func url(stringUrl:String)->SoundItemViewModel{
         var url = URL.init(string: stringUrl)!
         var downloadConfig = defaultAppDownloadManager.downloadConfig(remoteUrl:url)
-        var item = QuranItemViewModel.init(progress: 0, url:url, status:.notDownloaded);
+        var item = SoundItemViewModel.init(progress: 0, url:url, status:.notDownloaded);
         item.status = downloadConfig.0
         item.progress = downloadConfig.1 ?? 0.0
         defaultAppDownloadManager.addfileService(url, localFile: item.localFile())
@@ -48,7 +48,7 @@ class ContentViewModel:NSObject,ObservableObject{
         };
         return action;
     }
-    func cellAction(_ quranItemViewModel:QuranItemViewModel)->Action{
+    func cellAction(_ quranItemViewModel:SoundItemViewModel)->Action{
         let action:Action = {
         };
         return action;

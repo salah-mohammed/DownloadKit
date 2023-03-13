@@ -1,5 +1,5 @@
 //
-//  QuranItemViewModel.swift
+//  SoundItemViewModel.swift
 //  DownloadKitSwiftUIExample
 //
 //  Created by SalahMohamed on 30/12/2022.
@@ -10,10 +10,8 @@ import DownloadKit
 import SwiftUI
 import MediaPlayer
 
-class QuranItemViewModel:NSObject,ObservableObject{
+class SoundItemViewModel:NSObject,ObservableObject{
     
-
-  
     func quranUrl()->URL?{
        if let url :URL = self.genrateQuranRemoteUrl(),
            let download = defaultAppDownloadManager.download(remoteUrl:url.absoluteString){
@@ -55,7 +53,7 @@ class QuranItemViewModel:NSObject,ObservableObject{
         self.status=status
     }
     
-    func donwload(object:QuranItemViewModel)->Action{
+    func donwload(object:SoundItemViewModel)->Action{
         let action = {
             if let  remoteUrl:URL = object.genrateQuranRemoteUrl(){
                 defaultAppDownloadManager.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in

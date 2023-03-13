@@ -1,5 +1,5 @@
 //
-//  QuranItemView.swift
+//  ListItemView.swift
 //  DownloadKitSwiftUIExample
 //
 //  Created by SalahMohamed on 30/12/2022.
@@ -8,9 +8,9 @@
 
 import Foundation
 import SwiftUI
-struct QuranItemView: View {
-    @State var viewModel:ContentViewModel
-    @StateObject var rowViewModel:QuranItemViewModel{
+struct ListItemView: View {
+    @State var viewModel:ListItemsViewModel
+    @StateObject var rowViewModel:SoundItemViewModel{
         didSet{
         }
     }
