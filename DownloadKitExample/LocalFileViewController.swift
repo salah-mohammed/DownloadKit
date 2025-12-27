@@ -27,11 +27,9 @@ class LocalFileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
-//        downloadService =  FileDownloadService.init(url: URL.init(string:"http://android.quran.com/data/zips/images_1024.zip")!,.background)
-        downloadService =  FileDownloadService.init(url:URL.init(string:"https://android.quran.com/data/zips/images_1024.zip")!);
+        downloadService =  FileDownloadService.init(url:URL.init(string:"https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4")!);
         downloadService?.autoSave=true;
-        downloadService?.localFile = .downloads(folderName:"Quran/Images",localefileName:"images_1024", fileType:"zip")
+        downloadService?.localFile = .downloads(folderName:"Videos/mp4Folder",localefileName:"video_test", fileType:"mp4")
 
         downloadService?.didReceive(didReceive: {
             self.sliderView.value  = self.downloadService?.percentageDownloaded ?? 0;
