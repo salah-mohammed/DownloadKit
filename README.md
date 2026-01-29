@@ -1,6 +1,6 @@
 # DownloadKit
 
-DownloadKit operates as a multi-layered system of services: a file processing system, an individual download service, and a queue for group download services.
+DownloadKit operates as a multi-layered system of services like a file processing system, an individual download service, and a queue for group download services.
 
 
 # Requirements
