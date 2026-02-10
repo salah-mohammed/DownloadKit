@@ -36,4 +36,10 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
             print("completeReceive");
 
         })
+        downloadService?.resume();
+```
+- For Canceling the download service.
+
+```swift
+        downloadService?.cancel(byProducingResumeData:nil);
 ```
