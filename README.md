@@ -16,7 +16,7 @@ pod 'DownloadKit',:git => "https://github.com/salah-mohammed/DownloadKit.git"
 ```
 # How used
 
-- FileDownloadService: this used to download data and save it in your path.
+- FileDownloadService, used to download data and save it in your path.
 ```swift
 var downloadService:FileDownloadService?
 downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4")!);
@@ -52,4 +52,23 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
                 downloadService?.resume();
             }
         }
+```
+- DownloadService, used to download data only, without saving in files.
+
+```swift
+    var downloadService:DownloadService?
+
+       downloadService =  DownloadService.init(url: URL.init(string:"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!)
+        downloadService?.didReceive(didReceive: {
+            self.sliderView.value  = self.downloadService?.percentageDownloaded ?? 0;
+            self.lblBufferLength.text = "\(self.downloadService?.bufferLength ?? 0)";
+            self.lblContentLength.text = "\(self.downloadService?.contentLength ?? 0)";
+
+        })
+        downloadService?.completeWithError(completeWithError: {
+            print("error to download");
+        })
+        downloadService?.completeReceive(completeReceive: {
+            print("completeReceive");
+        })
 ```
