@@ -60,7 +60,7 @@ var appDownloadManager = defaultAppDownloadManager
 ```
 or 
 ```swift
-public var defaultAppDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
+public var cutomDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
 ```
 - DownloadService, used to download data only, without saving in files.
 
