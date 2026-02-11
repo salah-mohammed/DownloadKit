@@ -16,7 +16,7 @@ pod 'DownloadKit',:git => "https://github.com/salah-mohammed/DownloadKit.git"
 ```
 # How used
 
-- FileDownloadService
+- FileDownloadService: this used to download data and save it in your path.
 ```swift
 var downloadService:FileDownloadService?
 downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4")!);
@@ -38,8 +38,19 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
         })
         downloadService?.resume();
 ```
-- For Canceling the download service.
+- For Canceling the FileDownloadService.
 
 ```swift
         downloadService?.cancel(byProducingResumeData:nil);
+```
+- 
+- For resume the FileDownloadService if your turn of the app but you must have file link only link
+
+```swift
+        if let  url:URL = self.downloadService?.localFileUrl {
+            if var data:Data = try? Data.init(contentsOf:url){
+                downloadService?.build(data: data);
+                downloadService?.resume();
+            }
+        }
 ```
