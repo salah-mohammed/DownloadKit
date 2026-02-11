@@ -7,7 +7,6 @@ target 'DownloadKit' do
 
   # Pods for DownloadKit
 
-pod 'RealmSwift'
 
 end
 
