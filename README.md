@@ -43,8 +43,7 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
 ```swift
         downloadService?.cancel(byProducingResumeData:nil);
 ```
-- 
-- For resume the FileDownloadService if your turn of the app but you must have file link only link
+- For resumeing FileDownloadService even if your turn off the app, file link required only and do this.
 
 ```swift
         if let  url:URL = self.downloadService?.localFileUrl {
