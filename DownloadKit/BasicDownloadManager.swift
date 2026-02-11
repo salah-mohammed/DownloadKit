@@ -23,7 +23,7 @@ open class BasicDownloadManager: NSObject {
     open func addfileService(_ url:URL?,localIUrl:URL)->BasicFileDownloadService?{
         if let url :URL = url{
             var fileDownloadService:BasicFileDownloadService? = self.items.first(where: { (item) -> Bool in
-                return item.url==url
+                return item.url?.equalRemoteUrl(url) ?? false
             })
             if fileDownloadService == nil {
             fileDownloadService = BasicFileDownloadService.init(url: url,.background);
@@ -37,7 +37,7 @@ open class BasicDownloadManager: NSObject {
     open func fileService(_ url:URL?)->BasicFileDownloadService?{
         if let url :URL = url{
             let fileDownloadService:BasicFileDownloadService? = self.items.first(where: { (item) -> Bool in
-                return item.url==url
+                return item.url?.equalRemoteUrl(url) ?? false
             })
             return fileDownloadService;
         }

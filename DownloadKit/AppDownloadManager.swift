@@ -1,0 +1,248 @@
+//
+//  DownloadKitManager.swift
+//  DownloadKit
+//
+//  Created by SalahMohamed on 24/10/2022.
+//  Copyright © 2022 Salah. All rights reserved.
+//
+
+import UIKit
+#if canImport(Realm)
+#if canImport(RealmSwift)
+import Realm
+import RealmSwift
+public let defaultAppDownloadManager = AppDownloadManager.init(featureName:AppDownloadManager.defaultFeatureName)
+open class AppDownloadManager: NSObject {
+    // Bool
+    public typealias DownloadAllIsActiveHandler = (Bool)->Void
+    public var downloadAllIsActiveHandler:DownloadAllIsActiveHandler?
+    public typealias DownloadData = (Download.Status?,CGFloat?,URLSessionTask.State?)
+    public typealias DownloadDataConfig = (Download.Status?,CGFloat?,URLSessionTask.State?) -> Void
+    var downloadIndex:Int?;
+    public var donwloadAllIsActive:Bool=false{
+        didSet{
+            if oldValue==false&&donwloadAllIsActive{
+                NotificationCenter.default.addObserver(self, selector: #selector(AppDownloadManager.finish(_:)), name:Notification.Name.DidFinishDownloadingTo, object: nil)
+                downloadAllIsActiveHandler?(true)
+            }else{
+                NotificationCenter.default.removeObserver(self)
+                downloadAllIsActiveHandler?(false)
+            }
+        }
+    }
+    public var featureName:String
+    public static let defaultFeatureName="default";
+    var  downloadManager = DownloadManager.init();
+
+    public static var realm:Realm?
+     public init(featureName:String) {
+         self.featureName=featureName;
+         if AppDownloadManager.realm == nil {
+             AppDownloadManager.realmSetup();
+         }
+    }
+    public var fileDownloadServices:[FileDownloadService]{
+        return downloadManager.items
+    }
+    static func realmSetup(){
+        var config = Realm.Configuration()
+        config.deleteRealmIfMigrationNeeded=true;
+        config.fileURL = config.fileURL?.deletingLastPathComponent().appendingPathComponent("DownloadKit.realm")
+        autoreleasepool {
+            do {
+                AppDownloadManager.realm = try? Realm(configuration: config)
+            }catch let error as NSError {
+                
+            }
+        }
+    }
+    // use for actions only don't use handlers
+    open func downloadData(remoteUrl:URL)->(Download?,FileDownloadService?){
+    let download:Download? = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
+        let fileDownloadService:FileDownloadService? = downloadManager.fileService(remoteUrl)
+    return (download,fileDownloadService)
+}
+    
+    open func downloadConfig(remoteUrl:URL)->DownloadData{
+        if let download:Download = Download.download(featureName,remoteUrl:remoteUrl.absoluteString){
+            if let downloadService = downloadManager.fileService(remoteUrl){
+                let value = downloadService.percentageDownloaded.bs_cgFloat
+                return (download.status,value,downloadService.state)
+            }else{
+                return (download.status,download.percentageDownloaded.bs_cgFloat,nil)
+            }
+        }else{
+            return (.notDownloaded,nil,nil)
+        }
+    }
+    func download(_ old:Download?,
+                     remoteUrl:URL)->Download?{
+        if let value:Download = old{
+          return value
+        }else{
+        return Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
+        }
+    }
+    open func downloadConfig(remoteUrl:URL,
+                         status:@escaping DownloadDataConfig){
+        var download:Download? = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
+        let downloadService:FileDownloadService? = downloadManager.fileService(remoteUrl)
+        if let downloadService:FileDownloadService = downloadService{
+            downloadService.didReceive(didReceive: {
+                download = self.download(download,remoteUrl:remoteUrl)
+                download?.update(totalBytesCount:downloadService.totalBytesExpectedToWrite.bs_int,downloadService.totalBytesWritten.bs_int, handler: nil);
+                let value = downloadService.percentageDownloaded.bs_cgFloat
+                status(download?.status,value,downloadService.state)
+            })
+            downloadService.didFinishDownloadingTo({ (url) in
+                download = self.download(download,remoteUrl:remoteUrl)
+                download?.update(url, handler: nil);
+                status(.downloaded,1.0,downloadService.state)
+            })
+            downloadService.didFinishDownloadingWithError { (error) in
+                download = self.download(download,remoteUrl:remoteUrl)
+                let value = downloadService.percentageDownloaded.bs_cgFloat
+                status(download?.status,value,downloadService.state)
+            }
+        }
+        if let download:Download = download{
+            if let downloadService:FileDownloadService = downloadService{
+                let value = downloadService.percentageDownloaded.bs_cgFloat
+                status(download.status,value,downloadService.state)
+            }else{
+                status(download.status,download.percentageDownloaded.bs_cgFloat,nil)
+            }
+        }else{
+            status(.notDownloaded,nil,nil)
+        }
+    }
+    //_ a:FileDownloadService.DidReceive
+    open func downloadAction(remoteUrl:URL,
+                localFile:FileDownloadService.LocalFile,
+                status:@escaping DownloadDataConfig){
+        var download = Download.download(featureName,remoteUrl:remoteUrl.absoluteString)
+        var downloadService = downloadManager.addfileService(remoteUrl, localFile:localFile)
+
+        downloadService?.didReceive(didReceive: {
+            download = self.download(download,remoteUrl:remoteUrl)
+            download?.update(totalBytesCount:(downloadService?.totalBytesExpectedToWrite ?? 0).bs_int, (downloadService?.totalBytesWritten ?? 0).bs_int, handler: nil);
+            let value = downloadService?.percentageDownloaded.bs_cgFloat
+            status(download?.status,value,downloadService?.state)
+        })
+        downloadService?.didFinishDownloadingTo({ (url) in
+            download = self.download(download,remoteUrl:remoteUrl)
+            download?.update(url, handler: nil);
+            status(.downloaded,1.0,downloadService?.state)
+        })
+        downloadService?.didFinishDownloadingWithError { (error) in
+            download = self.download(download,remoteUrl:remoteUrl)
+            let value = downloadService?.percentageDownloaded.bs_cgFloat
+            status(download?.status,value,downloadService?.state)
+        }
+        if let download = download{
+            switch download.status ?? .notDownloaded{
+            case .notDownloaded:
+                downloadService?.resume();
+                break;
+            case .downloaded:
+                break;
+            case .downloading:
+                let downloadServiceStatus = downloadService?.state ?? .suspended
+                    switch downloadServiceStatus {
+                    case .running:
+                        self.donwloadAllIsActive=false;
+                        downloadService?.cancel(byProducingResumeData: { (data) in
+                            if let data:Data = data{
+                                downloadService?.build(data: data);
+                            }
+                            })
+                        break;
+                    case .suspended:
+//                        if let  url = downloadService?.localFileUrl {
+//                            if var data = try? Data.init(contentsOf:url) {
+//                                downloadService?.build(data: data);
+//                            }else{
+//                                downloadService?.build(url: remoteUrl);
+//                            }
+//                            downloadService?.resume();
+//                            }
+                        if downloadService?.dataTask?.error != nil {
+                            downloadService?.build(url: remoteUrl);
+                        }
+                        downloadService?.resume();
+
+                        break;
+                    case .canceling:
+                            downloadService?.resume();
+                        break;
+                    case .completed:
+                        break;
+                    @unknown default:
+                        break;
+                    }
+                break;
+            }
+        }
+    }
+    public func download(remoteUrl:String)->Download?{
+        return Download.download(self.featureName,remoteUrl: remoteUrl)
+    }
+    open func addfileService(_ url:URL?,localFile:FileDownloadService.LocalFile)->FileDownloadService?{
+        return  downloadManager.addfileService(url, localFile:localFile);
+    }
+    open func downloadAll(){
+        let items = fileDownloadServices;
+        if items.count > 0{
+        donwloadAllIsActive=true;
+        self.downloadFirstNotDownloaded(items);
+        }
+    }
+    func downloadFirstNotDownloaded(_ items:[FileDownloadService]){
+        let notDownlaodedService = items.first { service in
+            let download = Download.download(self.featureName,remoteUrl:service.url!.absoluteString)
+            return download?.status != .downloaded
+        }
+        downloadIndex = items.firstIndex(where: {notDownlaodedService == $0});
+        notDownlaodedService?.resume();
+    }
+    @objc func finish(_ notification:NSNotification){
+        
+        let items = self.fileDownloadServices
+//        if let notification:FileDownloadService=notification.object as? FileDownloadService{
+            if let oldIndex:Int = self.downloadIndex{
+                if  (oldIndex+1) < items.count{
+                    self.downloadIndex = (oldIndex+1)
+                    var newFileService =  items[self.downloadIndex ?? 0];
+                    let download = Download.download(self.featureName,remoteUrl:newFileService.url!.absoluteString)
+                        if download?.status == .downloaded{
+                            self.finish(_:notification)
+                        }else{
+                            newFileService.resume();
+                        }
+                }else{
+                    self.donwloadAllIsActive=false
+                }
+            }
+//        }
+    }
+}
+
+#endif
+#endif
+
+extension Int64 {
+    public var bs_int:Int
+    {
+        return Int.init(self);
+    }
+    public var bs_cgFloat:CGFloat{
+        return  CGFloat.init(self)
+    }
+    
+    
+}
+extension Float{
+    public var bs_cgFloat:CGFloat?{
+        return CGFloat(self);
+    }
+}

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DownloadKit"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "PageKit use UIPageViewController to make slider this maker build slider easy"
 
   # This description is used to generate tags and improve search results.
@@ -133,8 +133,7 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-
-
+   s.dependency "RealmSwift"
 s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
 s.resources = 'Pod/Resources/*'
 # s.static_framework = true

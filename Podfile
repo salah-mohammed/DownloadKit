@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+ platform :ios, '13.0'
 
 target 'DownloadKit' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -13,7 +13,14 @@ end
 target 'DownloadKitExample' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-#pod 'RealmSwift'
+pod 'RealmSwift'
+
+
+end
+target 'DownloadKitSwiftUIExample' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+pod 'RealmSwift'
 
 
 end

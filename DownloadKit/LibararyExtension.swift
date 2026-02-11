@@ -95,7 +95,30 @@ extension PHPhotoLibrary {
     }
     
 }
-
+extension String{
+    public func replace(target: String, withString: String) -> String {
+        return self.replacingOccurrences(of: target, with:withString, options: .literal, range: nil)
+    }
+}
+extension URL {
+    func equalRemoteUrl(_ url:URL?)->Bool{
+            var firstStringUrl = self.absoluteString
+            if var secondStringUrl:String = url?.absoluteString{
+                let firstUrlPrefix = String(firstStringUrl.prefix(5))
+                let secondUrlPrefix = String(secondStringUrl.prefix(5))
+                if firstUrlPrefix.lowercased() == "https"{
+                }else{
+                    firstStringUrl=firstStringUrl.replace(target: String(firstStringUrl.prefix(4)), withString:"https")
+                }
+                if secondUrlPrefix.lowercased() == "https"{
+                }else{
+                    secondStringUrl=secondStringUrl.replace(target: String(secondStringUrl.prefix(4)), withString:"https")
+                }
+               return firstStringUrl == secondStringUrl
+            }
+            return false;
+    }
+}
 
 #if canImport(Realm)
 #if canImport(RealmSwift)

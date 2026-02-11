@@ -28,7 +28,6 @@ class FileDownloadServiceExampleViewController: UIViewController {
         super.viewDidLoad()
         
         downloadService =  FileDownloadService.init(url:URL.init(string:"https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4")!);
-        downloadService?.autoSave=true;
         // MARK: localFile to set the final destination of downloaded file.
         downloadService?.localFile = .downloads(folderName:"Videos/mp4Folder",localefileName:"video_test", fileType:"mp4")
         downloadService?.didReceive(didReceive: {

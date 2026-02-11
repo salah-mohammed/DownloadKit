@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "E827E17A-A8FD-44A4-AF74-DA9CD5481622"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "311CA36A-0A0C-478E-BA51-F4F9ECB999FB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DownloadKit/AppDownloadManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "downloadAction(remoteUrl:localFile:status:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "311CA36A-0A0C-478E-BA51-F4F9ECB999FB - ee9915b8d7a9ca73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.AppDownloadManager.downloadAction(remoteUrl: Foundation.URL, localFile: DownloadKit.FileDownloadService.LocalFile, status: (Swift.Optional&lt;DownloadKit.Download.Status&gt;, Swift.Optional&lt;CoreGraphics.CGFloat&gt;, Swift.Optional&lt;__C.NSURLSessionTaskState&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/AppDownloadManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2092">
+               </Location>
+               <Location
+                  uuid = "311CA36A-0A0C-478E-BA51-F4F9ECB999FB - ee9915b8d7a9ca73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.AppDownloadManager.downloadAction(remoteUrl: Foundation.URL, localFile: DownloadKit.FileDownloadService.LocalFile, status: (Swift.Optional&lt;DownloadKit.Download.Status&gt;, Swift.Optional&lt;CoreGraphics.CGFloat&gt;, Swift.Optional&lt;__C.NSURLSessionTaskState&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/AppDownloadManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2144">
+               </Location>
+               <Location
+                  uuid = "311CA36A-0A0C-478E-BA51-F4F9ECB999FB - ee9915b8d7a9ca73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.AppDownloadManager.downloadAction(remoteUrl: Foundation.URL, localFile: DownloadKit.FileDownloadService.LocalFile, status: (Swift.Optional&lt;DownloadKit.Download.Status&gt;, Swift.Optional&lt;CoreGraphics.CGFloat&gt;, Swift.Optional&lt;__C.NSURLSessionTaskState&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/AppDownloadManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2256">
+               </Location>
+               <Location
+                  uuid = "311CA36A-0A0C-478E-BA51-F4F9ECB999FB - ee9915b8d7a9ca73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.AppDownloadManager.downloadAction(remoteUrl: Foundation.URL, localFile: DownloadKit.FileDownloadService.LocalFile, status: (Swift.Optional&lt;DownloadKit.Download.Status&gt;, Swift.Optional&lt;CoreGraphics.CGFloat&gt;, Swift.Optional&lt;__C.NSURLSessionTaskState&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/AppDownloadManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2308">
+               </Location>
+               <Location
+                  uuid = "311CA36A-0A0C-478E-BA51-F4F9ECB999FB - ee9915b8d7a9ca73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.AppDownloadManager.downloadAction(remoteUrl: Foundation.URL, localFile: DownloadKit.FileDownloadService.LocalFile, status: (Swift.Optional&lt;DownloadKit.Download.Status&gt;, Swift.Optional&lt;CoreGraphics.CGFloat&gt;, Swift.Optional&lt;__C.NSURLSessionTaskState&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/AppDownloadManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2312">
+               </Location>
+               <Location
+                  uuid = "311CA36A-0A0C-478E-BA51-F4F9ECB999FB - ee9915b8d7a9ca73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.AppDownloadManager.downloadAction(remoteUrl: Foundation.URL, localFile: DownloadKit.FileDownloadService.LocalFile, status: (Swift.Optional&lt;DownloadKit.Download.Status&gt;, Swift.Optional&lt;CoreGraphics.CGFloat&gt;, Swift.Optional&lt;__C.NSURLSessionTaskState&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/AppDownloadManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2364">
+               </Location>
+               <Location
+                  uuid = "311CA36A-0A0C-478E-BA51-F4F9ECB999FB - ee9915b8d7a9ca73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.AppDownloadManager.downloadAction(remoteUrl: Foundation.URL, localFile: DownloadKit.FileDownloadService.LocalFile, status: (Swift.Optional&lt;DownloadKit.Download.Status&gt;, Swift.Optional&lt;CoreGraphics.CGFloat&gt;, Swift.Optional&lt;__C.NSURLSessionTaskState&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/AppDownloadManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2080">
+               </Location>
+               <Location
+                  uuid = "311CA36A-0A0C-478E-BA51-F4F9ECB999FB - ee9915b8d7a9ca73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.AppDownloadManager.downloadAction(remoteUrl: Foundation.URL, localFile: DownloadKit.FileDownloadService.LocalFile, status: (Swift.Optional&lt;DownloadKit.Download.Status&gt;, Swift.Optional&lt;CoreGraphics.CGFloat&gt;, Swift.Optional&lt;__C.NSURLSessionTaskState&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/AppDownloadManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "528E712F-379B-4304-871E-2BF3DE468F42"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DownloadKit/CacheManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "writeFile(data:cacheUrl:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "528E712F-379B-4304-871E-2BF3DE468F42 - 2c10aee9b1a6919c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.CacheManager.writeFile(data: Foundation.Data, cacheUrl: Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/CacheManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1056">
+               </Location>
+               <Location
+                  uuid = "528E712F-379B-4304-871E-2BF3DE468F42 - 2c10aee9b1a6919c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.CacheManager.writeFile(data: Foundation.Data, cacheUrl: Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/CacheManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1040">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE31950C-A6B5-4F2C-A523-CE09F7298811"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DownloadKit/CacheManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "writeFile(data:cacheUrl:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BE31950C-A6B5-4F2C-A523-CE09F7298811 - 2c10aee9b1a692e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.CacheManager.writeFile(data: Foundation.Data, cacheUrl: Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/CacheManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "BE31950C-A6B5-4F2C-A523-CE09F7298811 - 2c10aee9b1a69201"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.CacheManager.writeFile(data: Foundation.Data, cacheUrl: Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/CacheManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "544">
+               </Location>
+               <Location
+                  uuid = "BE31950C-A6B5-4F2C-A523-CE09F7298811 - 2c10aee9b1a69201"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownloadKit.CacheManager.writeFile(data: Foundation.Data, cacheUrl: Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()"
+                  moduleName = "DownloadKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/DownloadKit/DownloadKit/CacheManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "532">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF74374F-3707-4700-99A1-FAB1588AFA47"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DownloadKit/AppDownloadManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "downloadAction(remoteUrl:localFile:status:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "465AAA83-5970-45DA-86BC-ADDA235CA761"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DownloadKit/AppDownloadManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "downloadAction(remoteUrl:localFile:status:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
