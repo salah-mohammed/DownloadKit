@@ -10,13 +10,13 @@
 		4E2368082503C03100977D7F /* DownloadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2368062503C03100977D7F /* DownloadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E2368152503C08000977D7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368142503C08000977D7F /* AppDelegate.swift */; };
 		4E2368172503C08000977D7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368162503C08000977D7F /* SceneDelegate.swift */; };
-		4E2368192503C08000977D7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368182503C08000977D7F /* ViewController.swift */; };
+		4E2368192503C08000977D7F /* DownloadServiceExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368182503C08000977D7F /* DownloadServiceExampleViewController.swift */; };
 		4E23681E2503C08500977D7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E23681D2503C08500977D7F /* Assets.xcassets */; };
 		4E2368212503C08500977D7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E23681F2503C08500977D7F /* LaunchScreen.storyboard */; };
 		4E2368292503C0BA00977D7F /* FileDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368262503C0BA00977D7F /* FileDownloadService.swift */; };
 		4E23682A2503C0BA00977D7F /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368272503C0BA00977D7F /* DownloadManager.swift */; };
 		4E23682B2503C0BA00977D7F /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368282503C0BA00977D7F /* DownloadService.swift */; };
-		4E2368322503C1F200977D7F /* LocalFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368312503C1F200977D7F /* LocalFileViewController.swift */; };
+		4E2368322503C1F200977D7F /* FileDownloadServiceExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368312503C1F200977D7F /* FileDownloadServiceExampleViewController.swift */; };
 		4E2368362503C5F000977D7F /* LibararyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368352503C5F000977D7F /* LibararyExtension.swift */; };
 		4E39B97C28D367C200B76DF0 /* DownloadKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2368032503C03100977D7F /* DownloadKit.framework */; };
 		4E39B97D28D367C200B76DF0 /* DownloadKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2368032503C03100977D7F /* DownloadKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -57,7 +57,7 @@
 		4E2368122503C08000977D7F /* DownloadKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DownloadKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2368142503C08000977D7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E2368162503C08000977D7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4E2368182503C08000977D7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4E2368182503C08000977D7F /* DownloadServiceExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceExampleViewController.swift; sourceTree = "<group>"; };
 		4E23681D2503C08500977D7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E2368202503C08500977D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E2368222503C08500977D7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 		4E2368272503C0BA00977D7F /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		4E2368282503C0BA00977D7F /* DownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		4E23682D2503C0D600977D7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E2368312503C1F200977D7F /* LocalFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileViewController.swift; sourceTree = "<group>"; };
+		4E2368312503C1F200977D7F /* FileDownloadServiceExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloadServiceExampleViewController.swift; sourceTree = "<group>"; };
 		4E2368352503C5F000977D7F /* LibararyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibararyExtension.swift; sourceTree = "<group>"; };
 		4EDF6BE02504C650001CA7AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDownloadManager.swift; sourceTree = "<group>"; };
@@ -141,8 +141,8 @@
 			children = (
 				4E2368142503C08000977D7F /* AppDelegate.swift */,
 				4E2368162503C08000977D7F /* SceneDelegate.swift */,
-				4E2368182503C08000977D7F /* ViewController.swift */,
-				4E2368312503C1F200977D7F /* LocalFileViewController.swift */,
+				4E2368182503C08000977D7F /* DownloadServiceExampleViewController.swift */,
+				4E2368312503C1F200977D7F /* FileDownloadServiceExampleViewController.swift */,
 				8BF04CB4290670CC00EAEEAB /* Download.swift */,
 				4EDF6BDF2504C650001CA7AF /* MainStoryboard.storyboard */,
 				4E23681D2503C08500977D7F /* Assets.xcassets */,
@@ -287,9 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2368192503C08000977D7F /* ViewController.swift in Sources */,
+				4E2368192503C08000977D7F /* DownloadServiceExampleViewController.swift in Sources */,
 				4E2368152503C08000977D7F /* AppDelegate.swift in Sources */,
-				4E2368322503C1F200977D7F /* LocalFileViewController.swift in Sources */,
+				4E2368322503C1F200977D7F /* FileDownloadServiceExampleViewController.swift in Sources */,
 				4E2368172503C08000977D7F /* SceneDelegate.swift in Sources */,
 				8B7E6AE1290E5A560099CF72 /* Download.swift in Sources */,
 			);

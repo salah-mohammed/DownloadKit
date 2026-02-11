@@ -29,8 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor :UIColor.blue,NSAttributedString.Key.font:UIFont.systemFont(ofSize: 15)], for:.normal)
-//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor :UIColor.red,NSAttributedString.Key.font:UIFont.systemFont(ofSize: 15)], for:.selected)
+        if #available(iOS 13, *) {
+            let appearance = UITabBarAppearance()
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
+            appearance.inlineLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
+            appearance.compactInlineLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
+            UITabBar().standardAppearance = appearance
+            if #available(iOS 15.0, *) {
+                UITabBar().scrollEdgeAppearance = appearance
+            }
+
+        }
 
         // Override point for customization after application launch.
         return true

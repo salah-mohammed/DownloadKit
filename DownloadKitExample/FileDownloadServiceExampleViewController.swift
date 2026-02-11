@@ -1,5 +1,5 @@
 //
-//  LocalFileViewController.swift
+//  FileDownloadServiceExampleViewController.swift
 //  AssetManagerExample
 //
 //  Created by Salah on 3/16/19.
@@ -8,8 +8,8 @@
 
 import UIKit
 import DownloadKit
-class LocalFileViewController: UIViewController {
-
+class FileDownloadServiceExampleViewController: UIViewController {
+    
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnStop: UIButton!
     @IBOutlet weak var btnResume: UIButton!
@@ -18,19 +18,19 @@ class LocalFileViewController: UIViewController {
     @IBOutlet weak var lblContentLength: UILabel!
     @IBOutlet weak var lblBufferLength: UILabel!
     @IBOutlet weak var btnResumDownloadFromLocalFile: UIButton!
-    @IBOutlet weak var btnTest: UIButton!
+    @IBOutlet weak var btnGetDownloadStatus: UIButton!
     
     
     var downloadService:FileDownloadService?
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         downloadService =  FileDownloadService.init(url:URL.init(string:"https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4")!);
         downloadService?.autoSave=true;
+        // MARK: localFile to set the final destination of downloaded file.
         downloadService?.localFile = .downloads(folderName:"Videos/mp4Folder",localefileName:"video_test", fileType:"mp4")
-
         downloadService?.didReceive(didReceive: {
             self.sliderView.value  = self.downloadService?.percentageDownloaded ?? 0;
             self.lblBufferLength.text = "\(self.downloadService?.totalBytesWritten ?? 0)";
@@ -42,7 +42,7 @@ class LocalFileViewController: UIViewController {
         })
         downloadService?.didFinishDownloadingTo({ (url) in
             print("completeReceive");
-
+            
         })
         print(downloadService?.state?.rawValue)
     }
@@ -63,7 +63,7 @@ class LocalFileViewController: UIViewController {
             print(self.downloadService?.state?.rawValue)
             print("a a");
         }
-
+        
     }
     @IBAction func btnRestart(_ sender: Any) {
         self.downloadService?.cancel(byProducingResumeData: nil);
@@ -73,39 +73,36 @@ class LocalFileViewController: UIViewController {
         downloadService?.suspend();
         print(downloadService?.state?.rawValue)
     }
-    @IBAction func btnTest(_ sender: Any) {
+    @IBAction func btnGetDownloadStatus(_ sender: Any) {
         if let status:URLSessionTask.State = self.downloadService?.state{
-        switch status {
-        case .completed:
-            print("completed")
-            break;
-        case .running:
-            print("running")
-            downloadService?.suspend();
-            break;
-        case .canceling:
-            print("canceling")
-
-            break;
-        case .suspended:
-            print("suspended")
-            downloadService?.resume();
-
-            break;
-            
-        }
+            switch status {
+            case .completed:
+                print("completed")
+                break;
+            case .running:
+                print("running")
+                downloadService?.suspend();
+                break;
+            case .canceling:
+                print("canceling")
+                
+                break;
+            case .suspended:
+                print("suspended")
+                downloadService?.resume();
+                
+                break;
+                
+            }
         }
     }
     @IBAction func btnResumDownloadFromLocalFile(_ sender: Any) {
-        var remoteUrl = URL.init(string:"https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4")!;
-        
-        
-        if let  url = self.downloadService!.localFileUrl {
-        var data = try? Data.init(contentsOf:url)
-        downloadService?.build(data: data!);
-        downloadService?.resume();
+        if let  url:URL = self.downloadService?.localFileUrl {
+            if var data:Data = try? Data.init(contentsOf:url){
+                downloadService?.build(data: data);
+                downloadService?.resume();
+            }
         }
         print(downloadService?.state?.rawValue)
-        
     }
 }

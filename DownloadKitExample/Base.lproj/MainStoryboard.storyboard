@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dt8-JG-dQT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dt8-JG-dQT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,7 @@
         <!--Download Service-->
         <scene sceneID="CJI-Xo-moG">
             <objects>
-                <viewController id="iJX-MP-UQK" customClass="ViewController" customModule="DownloadKitExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iJX-MP-UQK" customClass="DownloadServiceExampleViewController" customModule="DownloadKitExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LBy-8y-uVR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,22 +67,22 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LZ7-ke-Fe2">
-                                <rect key="frame" x="8" y="148" width="398" height="31"/>
+                                <rect key="frame" x="10" y="196" width="394" height="34"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qp-he-8Q0">
-                                <rect key="frame" x="20" y="198" width="42" height="21"/>
+                                <rect key="frame" x="20" y="250" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tax-vr-Dr5">
-                                <rect key="frame" x="352" y="198" width="42" height="21"/>
+                                <rect key="frame" x="352" y="250" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmy-vC-A1F">
-                                <rect key="frame" x="134.5" y="104" width="145" height="21"/>
+                                <rect key="frame" x="134.5" y="152" width="145" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -116,7 +116,7 @@
                             <constraint firstItem="K6H-5X-7p0" firstAttribute="height" secondItem="jAM-5K-hzH" secondAttribute="height" id="zZ1-OT-jYF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Download Service" id="ZRh-Lj-cO9"/>
+                    <tabBarItem key="tabBarItem" title="Download Service" image="list.triangle" catalog="system" id="ZRh-Lj-cO9"/>
                     <connections>
                         <outlet property="btnPause" destination="K6H-5X-7p0" id="P1A-Rp-GmN"/>
                         <outlet property="btnResume" destination="jAM-5K-hzH" id="faK-X3-nf2"/>
@@ -134,7 +134,7 @@
         <!--File Download Service-->
         <scene sceneID="PeR-VI-JAQ">
             <objects>
-                <viewController storyboardIdentifier="LocalFileViewController" id="T83-eV-ZJ3" customClass="LocalFileViewController" customModule="DownloadKitExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FileDownloadServiceExampleViewController" id="T83-eV-ZJ3" customClass="FileDownloadServiceExampleViewController" customModule="DownloadKitExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aYD-Vw-Eoi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,36 +183,36 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="APJ-GP-OpA">
-                                <rect key="frame" x="8" y="148" width="398" height="31"/>
+                                <rect key="frame" x="10" y="196" width="394" height="34"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMH-74-SQC">
-                                <rect key="frame" x="20" y="198" width="42" height="21"/>
+                                <rect key="frame" x="20" y="250" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yR4-v0-V8u">
-                                <rect key="frame" x="352" y="198" width="42" height="21"/>
+                                <rect key="frame" x="352" y="250" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdK-wR-Znq">
-                                <rect key="frame" x="102" y="733" width="210" height="30"/>
+                                <rect key="frame" x="102" y="699" width="210" height="30"/>
                                 <state key="normal" title="resum download from local file"/>
                                 <connections>
                                     <action selector="btnResumDownloadFromLocalFile:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="6Uq-X8-Hqr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Off-9b-FrQ">
-                                <rect key="frame" x="184" y="695" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="136.5" y="661" width="141" height="30"/>
+                                <state key="normal" title="get download Status"/>
                                 <connections>
-                                    <action selector="btnTest:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="aZH-Au-wJK"/>
+                                    <action selector="btnGetDownloadStatus:" destination="T83-eV-ZJ3" eventType="touchUpInside" id="KO9-YZ-H65"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Download Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIz-JL-L7B">
-                                <rect key="frame" x="123.5" y="104" width="167" height="21"/>
+                                <rect key="frame" x="123.5" y="152" width="167" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -252,14 +252,14 @@
                             <constraint firstItem="39B-qq-7aN" firstAttribute="width" secondItem="43f-qS-YSW" secondAttribute="width" id="z87-r3-ChP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="File Download Service" id="KMZ-Lt-B01"/>
+                    <tabBarItem key="tabBarItem" title="File Download Service" image="homekit" catalog="system" id="KMZ-Lt-B01"/>
                     <connections>
+                        <outlet property="btnGetDownloadStatus" destination="Off-9b-FrQ" id="Y2z-bA-gTE"/>
                         <outlet property="btnPause" destination="4u0-mU-CEk" id="mJQ-hE-Qim"/>
                         <outlet property="btnResumDownloadFromLocalFile" destination="AdK-wR-Znq" id="KHC-BC-ifi"/>
                         <outlet property="btnResume" destination="43f-qS-YSW" id="hcn-80-M4Y"/>
                         <outlet property="btnStart" destination="q2V-xd-0cl" id="ZBE-fZ-4I9"/>
                         <outlet property="btnStop" destination="39B-qq-7aN" id="SWC-9B-Gl7"/>
-                        <outlet property="btnTest" destination="Off-9b-FrQ" id="DdI-Yd-zw8"/>
                         <outlet property="lblBufferLength" destination="BMH-74-SQC" id="KSl-hN-fzq"/>
                         <outlet property="lblContentLength" destination="yR4-v0-V8u" id="ecZ-7J-CeL"/>
                         <outlet property="sliderView" destination="APJ-GP-OpA" id="Zu3-VA-tNn"/>
@@ -270,4 +270,8 @@
             <point key="canvasLocation" x="-550" y="42"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="homekit" catalog="system" width="128" height="104"/>
+        <image name="list.triangle" catalog="system" width="128" height="91"/>
+    </resources>
 </document>

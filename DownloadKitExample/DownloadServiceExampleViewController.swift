@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DownloadServiceExampleViewController.swift
 //  AssetManagerExample
 //
 //  Created by Salah on 3/15/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 import DownloadKit
-class ViewController: UIViewController {
+class DownloadServiceExampleViewController: UIViewController {
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnStop: UIButton!
     @IBOutlet weak var btnResume: UIButton!
