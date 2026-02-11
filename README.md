@@ -53,6 +53,15 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
             }
         }
 ```
+
+- DownloadManager 
+```swift
+var appDownloadManager = defaultAppDownloadManager
+```
+or 
+```swift
+public var defaultAppDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
+```
 - DownloadService, used to download data only, without saving in files.
 
 ```swift
