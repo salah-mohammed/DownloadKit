@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,13 +12,11 @@
 		4E2368082503C03100977D7F /* DownloadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2368062503C03100977D7F /* DownloadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E2368152503C08000977D7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368142503C08000977D7F /* AppDelegate.swift */; };
 		4E2368172503C08000977D7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368162503C08000977D7F /* SceneDelegate.swift */; };
-		4E2368192503C08000977D7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368182503C08000977D7F /* ViewController.swift */; };
 		4E23681E2503C08500977D7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E23681D2503C08500977D7F /* Assets.xcassets */; };
 		4E2368212503C08500977D7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E23681F2503C08500977D7F /* LaunchScreen.storyboard */; };
 		4E2368292503C0BA00977D7F /* FileDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368262503C0BA00977D7F /* FileDownloadService.swift */; };
 		4E23682A2503C0BA00977D7F /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368272503C0BA00977D7F /* DownloadManager.swift */; };
 		4E23682B2503C0BA00977D7F /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368282503C0BA00977D7F /* DownloadService.swift */; };
-		4E2368322503C1F200977D7F /* LocalFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368312503C1F200977D7F /* LocalFileViewController.swift */; };
 		4E2368362503C5F000977D7F /* LibararyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2368352503C5F000977D7F /* LibararyExtension.swift */; };
 		4E39B97C28D367C200B76DF0 /* DownloadKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2368032503C03100977D7F /* DownloadKit.framework */; };
 		4E39B97D28D367C200B76DF0 /* DownloadKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2368032503C03100977D7F /* DownloadKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -30,10 +28,12 @@
 		8B14C501295EEEA1004E04F3 /* DownloadKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2368032503C03100977D7F /* DownloadKit.framework */; platformFilter = ios; };
 		8B14C502295EEEA1004E04F3 /* DownloadKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2368032503C03100977D7F /* DownloadKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B14C50B295F4835004E04F3 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14C50A295F4835004E04F3 /* CacheManager.swift */; };
+		8B3BAE3E2F3CB72700FC1B1C /* FileDownloadServiceExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BAE3C2F3CB72700FC1B1C /* FileDownloadServiceExampleViewController.swift */; };
+		8B3BAE3F2F3CB72700FC1B1C /* DownloadServiceExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BAE3B2F3CB72700FC1B1C /* DownloadServiceExampleViewController.swift */; };
 		8B534F1B28FF41E500EE0D2D /* BasicDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */; };
 		8B58EB3C29BF3E9100C577AD /* ListItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58EB3929BF3E9100C577AD /* ListItemsView.swift */; };
 		8B58EB3E29BF3E9100C577AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58EB3B29BF3E9100C577AD /* ContentView.swift */; };
-		8B58EB4229BF3F1E00C577AD /* QuranItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58EB4129BF3F1E00C577AD /* QuranItemViewModel.swift */; };
+		8B58EB4229BF3F1E00C577AD /* SoundItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58EB4129BF3F1E00C577AD /* SoundItemViewModel.swift */; };
 		8B58EB4429BF400600C577AD /* ListItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58EB4329BF400600C577AD /* ListItemsViewModel.swift */; };
 		8B7E6AE5290E5EFA0099CF72 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E6AE4290E5EFA0099CF72 /* Download.swift */; };
 		8BB9E2642913B87600CA151A /* ParentFileDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9E2632913B87600CA151A /* ParentFileDownloadService.swift */; };
@@ -93,7 +93,6 @@
 		4E2368122503C08000977D7F /* DownloadKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DownloadKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2368142503C08000977D7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E2368162503C08000977D7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4E2368182503C08000977D7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E23681D2503C08500977D7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E2368202503C08500977D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E2368222503C08500977D7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,7 +100,6 @@
 		4E2368272503C0BA00977D7F /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		4E2368282503C0BA00977D7F /* DownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		4E23682D2503C0D600977D7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E2368312503C1F200977D7F /* LocalFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileViewController.swift; sourceTree = "<group>"; };
 		4E2368352503C5F000977D7F /* LibararyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibararyExtension.swift; sourceTree = "<group>"; };
 		4EDF6BE02504C650001CA7AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8902F7498E6F2598419DC658 /* Pods-DownloadKitSwiftUIExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownloadKitSwiftUIExample.release.xcconfig"; path = "Target Support Files/Pods-DownloadKitSwiftUIExample/Pods-DownloadKitSwiftUIExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,10 +110,12 @@
 		8B14C4F6295EE6FC004E04F3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B14C4FD295EE7D5004E04F3 /* DonwloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonwloadButton.swift; sourceTree = "<group>"; };
 		8B14C50A295F4835004E04F3 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		8B3BAE3B2F3CB72700FC1B1C /* DownloadServiceExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceExampleViewController.swift; sourceTree = "<group>"; };
+		8B3BAE3C2F3CB72700FC1B1C /* FileDownloadServiceExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloadServiceExampleViewController.swift; sourceTree = "<group>"; };
 		8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDownloadManager.swift; sourceTree = "<group>"; };
 		8B58EB3929BF3E9100C577AD /* ListItemsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemsView.swift; sourceTree = "<group>"; };
 		8B58EB3B29BF3E9100C577AD /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		8B58EB4129BF3F1E00C577AD /* QuranItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuranItemViewModel.swift; sourceTree = "<group>"; };
+		8B58EB4129BF3F1E00C577AD /* SoundItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundItemViewModel.swift; sourceTree = "<group>"; };
 		8B58EB4329BF400600C577AD /* ListItemsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemsViewModel.swift; sourceTree = "<group>"; };
 		8B7E6AE4290E5EFA0099CF72 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		8BB9E2632913B87600CA151A /* ParentFileDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentFileDownloadService.swift; sourceTree = "<group>"; };
@@ -214,8 +214,7 @@
 			children = (
 				4E2368142503C08000977D7F /* AppDelegate.swift */,
 				4E2368162503C08000977D7F /* SceneDelegate.swift */,
-				4E2368182503C08000977D7F /* ViewController.swift */,
-				4E2368312503C1F200977D7F /* LocalFileViewController.swift */,
+				8B3BAE3D2F3CB72700FC1B1C /* ViewControllers */,
 				4EDF6BDF2504C650001CA7AF /* MainStoryboard.storyboard */,
 				4E23681D2503C08500977D7F /* Assets.xcassets */,
 				4E23681F2503C08500977D7F /* LaunchScreen.storyboard */,
@@ -267,6 +266,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8B3BAE3D2F3CB72700FC1B1C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B3BAE3B2F3CB72700FC1B1C /* DownloadServiceExampleViewController.swift */,
+				8B3BAE3C2F3CB72700FC1B1C /* FileDownloadServiceExampleViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		8B58EB3829BF3E9100C577AD /* ListItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,7 +296,7 @@
 		8B58EB4029BF3F1E00C577AD /* Observed */ = {
 			isa = PBXGroup;
 			children = (
-				8B58EB4129BF3F1E00C577AD /* QuranItemViewModel.swift */,
+				8B58EB4129BF3F1E00C577AD /* SoundItemViewModel.swift */,
 			);
 			path = Observed;
 			sourceTree = "<group>";
@@ -456,9 +464,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -473,9 +485,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitSwiftUIExample/Pods-DownloadKitSwiftUIExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitSwiftUIExample/Pods-DownloadKitSwiftUIExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -572,9 +588,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2368192503C08000977D7F /* ViewController.swift in Sources */,
 				4E2368152503C08000977D7F /* AppDelegate.swift in Sources */,
-				4E2368322503C1F200977D7F /* LocalFileViewController.swift in Sources */,
+				8B3BAE3E2F3CB72700FC1B1C /* FileDownloadServiceExampleViewController.swift in Sources */,
+				8B3BAE3F2F3CB72700FC1B1C /* DownloadServiceExampleViewController.swift in Sources */,
 				4E2368172503C08000977D7F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,7 +603,7 @@
 				8B58EB3E29BF3E9100C577AD /* ContentView.swift in Sources */,
 				8B14C4EF295EE6FB004E04F3 /* DownloadKitSwiftUIExampleApp.swift in Sources */,
 				8B14C4FE295EE7D5004E04F3 /* DonwloadButton.swift in Sources */,
-				8B58EB4229BF3F1E00C577AD /* QuranItemViewModel.swift in Sources */,
+				8B58EB4229BF3F1E00C577AD /* SoundItemViewModel.swift in Sources */,
 				8B58EB4429BF400600C577AD /* ListItemsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

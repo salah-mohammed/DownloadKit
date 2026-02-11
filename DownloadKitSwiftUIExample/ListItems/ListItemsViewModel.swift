@@ -48,7 +48,7 @@ class ListItemsViewModel:NSObject,ObservableObject{
         };
         return action;
     }
-    func cellAction(_ quranItemViewModel:SoundItemViewModel)->Action{
+    func cellAction(_ soundItemViewModel:SoundItemViewModel)->Action{
         let action:Action = {
         };
         return action;

@@ -57,7 +57,7 @@ struct DonwloadButton: View {
             Circle()
                 .trim(from: 0, to:progress)
                 .stroke(lineWidth: 2)
-                .foregroundColor(Color("QuranListTableViewCell.circleProgress.partialTrackColor"))
+                .foregroundColor(Color("CircleProgress.partialTrackColor"))
                 .rotationEffect(Angle(degrees: 180))
                 .shadow(radius:8)
                 .rotationEffect(.degrees(90))

@@ -12,12 +12,11 @@ import MediaPlayer
 
 class SoundItemViewModel:NSObject,ObservableObject{
     
-    func quranUrl()->URL?{
-       if let url :URL = self.genrateQuranRemoteUrl(),
+    func soundLocalFileUrl()->URL?{
+        if let url :URL = self.url,
            let download = defaultAppDownloadManager.download(remoteUrl:url.absoluteString){
            if download.status == .downloaded{
                // local url
-//               return  DownloadManager.shared.fetch(quranItem: self);
                return download.localFileUrl
            }else{
                // remote url
@@ -33,10 +32,7 @@ class SoundItemViewModel:NSObject,ObservableObject{
     return localefile
    }
 
-   func genrateQuranRemoteUrl()->URL?{
 
-       return self.url;
-   }
     
     @Published var progress:CGFloat=0
     @Published var url:URL?
@@ -55,7 +51,7 @@ class SoundItemViewModel:NSObject,ObservableObject{
     
     func donwload(object:SoundItemViewModel)->Action{
         let action = {
-            if let  remoteUrl:URL = object.genrateQuranRemoteUrl(){
+            if let  remoteUrl:URL = object.url{
                 defaultAppDownloadManager.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in
                     self.progress = progressValue ?? 0.0
                     self.status = status
