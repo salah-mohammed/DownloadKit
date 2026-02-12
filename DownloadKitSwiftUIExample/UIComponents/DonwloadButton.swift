@@ -9,6 +9,8 @@
 import Foundation
 import SwiftUI
 import DownloadKit
+import RealmSwift
+import Realm
 struct DonwloadButton: View {
     @State var width:CGFloat=10
     @Binding  var progress: CGFloat

@@ -19,9 +19,10 @@ struct ListItemView: View {
       Button.init(action: self.viewModel.cellAction(rowViewModel)) {
           VStack(spacing:7){
           HStack(spacing:5){
-              Text(rowViewModel.url?.absoluteString ?? "").foregroundColor(Color.white)
-              .foregroundColor(Color("BlackText"))
+              Text(rowViewModel.url?.absoluteString ?? "")
+                  .foregroundColor(Color.init(uiColor: .label))
               .font(.system(size:16,weight:.regular))
+              
               Spacer()
               DonwloadButton.init(width: 35, progress:$rowViewModel.progress,status:$rowViewModel.status,fileDownloadService:$rowViewModel.fileDownloadService, action:self.rowViewModel.donwload(object: self.rowViewModel))
           }

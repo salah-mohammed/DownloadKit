@@ -150,7 +150,9 @@ open class ParentFileDownloadService: NSObject,URLSessionDelegate,URLSessionDown
    }
    public func build(data:Data){
        dataTask = session?.downloadTask(withResumeData: data);
-       self.url = dataTask?.currentRequest?.url;
+       if let tempURL:URL = dataTask?.currentRequest?.url{
+        self.url = tempURL
+       }
    }
    public func build(url:URL){
        dataTask = session?.downloadTask(with: NSURLRequest(url: url) as URLRequest);

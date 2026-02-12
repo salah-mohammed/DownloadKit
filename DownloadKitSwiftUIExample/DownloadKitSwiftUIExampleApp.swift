@@ -12,7 +12,20 @@ import SwiftUI
 struct DownloadKitSwiftUIExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ContentView()
+                    .tabItem {
+                            Label("Download List", systemImage: "house")
+                           }
+                FileDownloadServiceView()
+                      .tabItem {
+                          Label("File Download Service", systemImage: "person")
+                      }
+                DownloadServiceView()
+                      .tabItem {
+                          Label("Download Service", systemImage: "person")
+                      }
+            }
         }
     }
 }
