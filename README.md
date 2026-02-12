@@ -40,11 +40,12 @@ DownloadKit operates as a multi-layered system of services like a file processin
 # Pod install
 ```ruby
 pod 'DownloadKit',:git => "https://github.com/salah-mohammed/DownloadKit.git"
- 
 ```
-# How used
 
-- FileDownloadService, used to download data and save it in your path.
+# How used
+## FileDownloadService
+
+* FileDownloadService, for singular file service used to download file and save it in your path.
 ```swift
 var downloadService:FileDownloadService?
 downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4")!);
@@ -66,12 +67,12 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
         })
         downloadService?.resume();
 ```
-- For Canceling the FileDownloadService.
+- For Cancelling the FileDownloadService.
 
 ```swift
         downloadService?.cancel(byProducingResumeData:nil);
 ```
-- For resumeing FileDownloadService even if your turn off the app, file link required only and do this.
+-Even if your turn off the app, resuming enable by FileDownloadService, file link required only and do this.
 
 ```swift
         if let  url:URL = self.downloadService?.localFileUrl {
@@ -81,8 +82,9 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
             }
         }
 ```
+## DownloadManager
+1. **First**
 
-- DownloadManager 
 ```swift
 var appDownloadManager = defaultAppDownloadManager
 //or 
