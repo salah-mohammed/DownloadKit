@@ -123,6 +123,7 @@
 		8B3BAE492F3CC3CC00FC1B1C /* FileDownloadServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloadServiceViewModel.swift; sourceTree = "<group>"; };
 		8B3BAE4D2F3CC44300FC1B1C /* DownloadServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceView.swift; sourceTree = "<group>"; };
 		8B3BAE4E2F3CC44300FC1B1C /* DownloadServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceViewModel.swift; sourceTree = "<group>"; };
+		8B3BAE522F3DE34700FC1B1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDownloadManager.swift; sourceTree = "<group>"; };
 		8B58EB4129BF3F1E00C577AD /* SoundItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundItemViewModel.swift; sourceTree = "<group>"; };
 		8B7E6AE4290E5EFA0099CF72 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 		8B14C4ED295EE6FB004E04F3 /* DownloadKitSwiftUIExample */ = {
 			isa = PBXGroup;
 			children = (
+				8B3BAE522F3DE34700FC1B1C /* Info.plist */,
 				8B14C4EE295EE6FB004E04F3 /* DownloadKitSwiftUIExampleApp.swift */,
 				8B3BAE402F3CC36D00FC1B1C /* ContentView.swift */,
 				8B58EB4529BF40AA00C577AD /* UIComponents */,
@@ -915,6 +917,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DownloadKitSwiftUIExample/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -956,6 +959,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DownloadKitSwiftUIExample/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

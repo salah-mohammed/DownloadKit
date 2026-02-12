@@ -15,7 +15,7 @@ class FileDownloadServiceViewModel:NSObject,ObservableObject{
 
     override init() {
         super.init();
-
+//"https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_30MB.mp4"
         downloadService =  FileDownloadService.init(url:URL.init(string:"https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4")!);
         // MARK: localFile to set the final destination of downloaded file.
         downloadService?.localFile = .downloads(folderName:"Videos/mp4Folder",localefileName:"video_test", fileType:"mp4")

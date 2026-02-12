@@ -128,9 +128,9 @@ open class ParentFileDownloadService: NSObject,URLSessionDelegate,URLSessionDown
    }
    open func cancel(byProducingResumeData:((Data?)->Void)?) {
        self.dataTask?.cancel(byProducingResumeData: { (data:Data?) in
-//            if data != nil && self.autoSave == true {
-//            self.writeFile(data: data!, url: self.url!);
-//            }
+           if data != nil && self.autoSave == true,let localURL:URL = self.internalLocalFileUrl()  {
+                self.writeFile(data: data!, url:localURL);
+            }
            byProducingResumeData?(data);
        })
    }

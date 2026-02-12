@@ -15,15 +15,15 @@ class ListItemsViewModel:NSObject,ObservableObject{
 
     override init() {
         super.init();
-        list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/001.mp3"))
-        list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/002.mp3"))
-        list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/003.mp3"))
-        list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/004.mp3"))
-        list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/005.mp3"))
-        list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/006.mp3"))
-        list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/007.mp3"))
-        list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/008.mp3"))
-        list.append(url(stringUrl:"https://nfcard.online/Salah/Quran/MishariAlAfasi/009.mp3"))
+        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/001.mp3"))
+        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/002.mp3"))
+        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/003.mp3"))
+        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/004.mp3"))
+        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/005.mp3"))
+        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/006.mp3"))
+        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/007.mp3"))
+        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/008.mp3"))
+        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/009.mp3"))
 
     }
     func url(stringUrl:String)->SoundItemViewModel{
