@@ -110,7 +110,7 @@ defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fil
 defaultAppDownloadManager.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in
 }
 ```
-6 Download all: Controlling hidden of the button, depend if all downloaded or not. 
+6. Download all: Controlling hidden of the button, depend if all downloaded or not. 
 ```swift     
 self.showDownload = !defaultAppDownloadManager.donwloadAllIsActive
 defaultAppDownloadManager.downloadAllIsActiveHandler = { value in
