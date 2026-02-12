@@ -80,32 +80,30 @@ if let  url:URL = self.downloadService?.localFileUrl {
      downloadService?.build(data: data);
      downloadService?.resume();
       }
- }
+}
 ```
 **DownloadManager**
 
 ```swift
 var appDownloadManager = defaultAppDownloadManager
-//or 
-public var appDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
-
+//or
+var appDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
 ```
 
-- add your remote file and local file destination to manager.
+- Add your remote file and local file destination to manager.
 ```swift     
 defaultAppDownloadManager.addfileService(url, localFile: item.localFile())
 ```
-- for get database info for your downloading file
+- Get database info for your download file
 ```swift  
 var downloadConfig = defaultAppDownloadManager.downloadConfig(remoteUrl:url)
 ```
-- for track the progress and file status
+- Track the progress and file status
 ```swift     
 defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fileState in
 }
 ```
-
-- set this in download button action all logic code inside libaray
+- Set this in download button or action, all logic code inside libaray
 ```swift     
 defaultAppDownloadManager.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in
 }
