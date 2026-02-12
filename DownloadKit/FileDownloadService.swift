@@ -74,8 +74,10 @@ open class FileDownloadService:ParentFileDownloadService{
 }
  extension ParentFileDownloadService {
      public func reStart(){
-        self.build(url: self.url!)
-        self.resume();
+         if let url:URL = self.url{
+             self.build(url:url)
+             self.resume();
+         }
     }
 }
 
