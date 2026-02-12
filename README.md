@@ -57,13 +57,13 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
 - DownloadManager 
 ```swift
 var appDownloadManager = defaultAppDownloadManager
-```
-or 
-```swift
+//or 
 public var cutomDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
+
 ```
+
 - add your remote file to download it and where and add local file destination.
-   ```     
+```     
         defaultAppDownloadManager.addfileService(url, localFile: item.localFile())
 ```swift
 - for get database info for your downloading file
