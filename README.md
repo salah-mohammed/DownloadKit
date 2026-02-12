@@ -2,6 +2,34 @@
 
 DownloadKit operates as a multi-layered system of services like a file processing system, an individual download service, and a queue for group download services.
 
+[![Swift](https://img.shields.io/badge/Swift-5.0+-orange.svg)](#)
+[![iOS](https://img.shields.io/badge/iOS-13+-blue.svg)](#)
+[![GitHub stars](https://img.shields.io/github/stars/salah-mohammed/GeneralKit?style=social)](#)
+[![Sponsor](https://img.shields.io/badge/Sponsor-💖-ff69b4)](https://github.com/sponsors/salah-mohammed)
+[![Buy Me A Coffee](https://img.shields.io/badge/☕️-Buy%20Me%20a%20Coffee-yellow)](https://buymeacoffee.com/salahalimou)
+
+# Why Use This?
+
+> Write less code, get more done, and keep your Swift projects elegant.
+> Stop writing the same boilerplate networking for list and table/collection view code again and again.  
+> **DownloadKit** gives you a clean, reusable, and lightning-fast way to load, paginate, and present data — so you can focus on building features that matter.
+
+# Features
+
+* It is a Data management Library  support HTTP networking.
+* Data display management in UITableView and UICollectionView,In an easy and simple way and with the least possible code by GeneralKit tools.
+* Pagination by page number and offset.
+* Support UIKit and SwiftUI(WithExample).
+* Very clean code.
+* Tools to present data in UITableView and UICollectionView.
+* Placeholder for UITableView  and UICollectionView.
+* Single,Multi and Single Section selection  for UITableView  and UICollectionView.
+* Upload File / Data / Stream / MultipartFormData.
+* URL / JSON Parameter Encoding.
+* You can develop a project with very clear code
+* Swift Concurrency Support Back to iOS 13.
+* Simulate Remote Response by local file.
+
 
 # Requirements
 * IOS 13+ 
@@ -58,7 +86,7 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
 ```swift
 var appDownloadManager = defaultAppDownloadManager
 //or 
-public var cutomDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
+public var appDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
 
 ```
 
