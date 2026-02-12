@@ -1,4 +1,4 @@
-# DownloadKit
+ge# DownloadKit
 
 DownloadKit operates as a multi-layered system of services like a file processing system, an individual download service, and a queue for group download services.
 
@@ -84,6 +84,8 @@ if let  url:URL = self.downloadService?.localFileUrl {
 ```
 **DownloadManager**
 * DownloadManager, Downloads multiple files and saves them to your paths.
+  
+1. Define your manager.
 ```swift
 var appDownloadManager = defaultAppDownloadManager
 //or
