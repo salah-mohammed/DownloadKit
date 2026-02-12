@@ -43,7 +43,7 @@ pod 'DownloadKit',:git => "https://github.com/salah-mohammed/DownloadKit.git"
 ```
 
 # How used
-## FileDownloadService
+**FileDownloadService**
 
 * FileDownloadService, for singular file service used to download file and save it in your path.
 ```swift
@@ -82,8 +82,7 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
             }
         }
 ```
-## DownloadManager
-1. **First**
+**DownloadManager**
 
 ```swift
 var appDownloadManager = defaultAppDownloadManager
