@@ -63,31 +63,32 @@ public var cutomDownloadManager = AppDownloadManager.init(featureName:"DownloadL
 ```
 
 - add your remote file to download it and where and add local file destination.
-```     
+```swift     
         defaultAppDownloadManager.addfileService(url, localFile: item.localFile())
-```swift
+```
 - for get database info for your downloading file
-```  
+```swift  
 var downloadConfig = defaultAppDownloadManager.downloadConfig(remoteUrl:url)
-```swift
+```
 - for track the progress and file status
-```     
+```swift     
         defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fileState in
         }
-```swift
+```
 
 - set this in download button action all logic code inside libaray
+```swift     
 defaultAppDownloadManager.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in
 
 }
-
-- all download:controlling button appearance if all depend if all downloaded or not. 
 ```
+- all download:controlling button appearance if all depend if all downloaded or not. 
+```swift     
         self.showDownload = !defaultAppDownloadManager.donwloadAllIsActive
         defaultAppDownloadManager.downloadAllIsActiveHandler = { value in
             self.showDownload = !value
         }
-```swift
+```
 
 - DownloadService, used to download data only, without saving in files.
 
