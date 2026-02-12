@@ -72,7 +72,7 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
 ```swift
 downloadService?.cancel(byProducingResumeData:nil);
 ```
--Even if your turn off the app or do Permanent suspension, resuming enable by FileDownloadService, file link required only and do this.
+- Even if your turn off the app or do Permanent suspension, resuming enable by FileDownloadService, file link required only and do this.
 
 ```swift
 if let  url:URL = self.downloadService?.localFileUrl {
