@@ -92,25 +92,25 @@ var appDownloadManager = defaultAppDownloadManager
 var appDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
 ```
 
-- Add your remote file and local file destination to manager.
+2. Add your remote file and local file destination to manager.
 ```swift     
 defaultAppDownloadManager.addfileService(url, localFile: item.localFile())
 ```
-- Get download info, for your download file.
+3. Get download info, for your download file.
 ```swift  
 var downloadConfig = defaultAppDownloadManager.downloadConfig(remoteUrl:url)
 ```
-- Track the progress and file status by this handler.
+4. Track the progress and file status by this handler.
 ```swift     
 defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fileState in
 }
 ```
-- Set this in download button or action, all logic code inside libaray
+5. Set this in download button or action, all logic code inside libaray
 ```swift     
 defaultAppDownloadManager.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in
 }
 ```
-- Download all: Controlling hidden of the button, depend if all downloaded or not. 
+6 Download all: Controlling hidden of the button, depend if all downloaded or not. 
 ```swift     
 self.showDownload = !defaultAppDownloadManager.donwloadAllIsActive
 defaultAppDownloadManager.downloadAllIsActiveHandler = { value in
