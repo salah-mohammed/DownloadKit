@@ -45,7 +45,7 @@ pod 'DownloadKit',:git => "https://github.com/salah-mohammed/DownloadKit.git"
 # How used
 **FileDownloadService**
 
-* FileDownloadService, Downloads singular file and saves it to yout path.
+* FileDownloadService, Downloads singular file and saves it to your path.
 ```swift
 var downloadService:FileDownloadService?
 downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302.us.archive.org/27/items/Pbtestfilemp4videotestmp4/video_test.mp4")!);
