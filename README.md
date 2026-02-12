@@ -11,8 +11,8 @@ DownloadKit operates as a multi-layered system of services like a file processin
 # Why Use This?
 
 > Write less code, get more done, and keep your Swift projects elegant.
-> Stop writing the same boilerplate networking for list and table/collection view code again and again.  
-> **DownloadKit** gives you a clean, reusable, and lightning-fast way to load, paginate, and present data — so you can focus on building features that matter.
+> Stop writing the same boilerplate downloading for download files again and again.  
+> **DownloadKit** gives you a clean, reusable, and lightning-fast way to singlular download and Mass download  — so you can focus on building features that matter.
 
 # Features
 
@@ -67,12 +67,12 @@ downloadService = FileDownloadService.init(url:URL.init(string:"https://ia802302
         })
         downloadService?.resume();
 ```
-- For Cancelling the FileDownloadService.
+- For Cancelling the FileDownloadService, Permanent suspension.
 
 ```swift
 downloadService?.cancel(byProducingResumeData:nil);
 ```
--Even if your turn off the app, resuming enable by FileDownloadService, file link required only and do this.
+-Even if your turn off the app or do Permanent suspension, resuming enable by FileDownloadService, file link required only and do this.
 
 ```swift
 if let  url:URL = self.downloadService?.localFileUrl {
@@ -83,7 +83,6 @@ if let  url:URL = self.downloadService?.localFileUrl {
 }
 ```
 **DownloadManager**
-
 ```swift
 var appDownloadManager = defaultAppDownloadManager
 //or
@@ -94,11 +93,11 @@ var appDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
 ```swift     
 defaultAppDownloadManager.addfileService(url, localFile: item.localFile())
 ```
-- Get database info for your download file
+- Get download info, for your download file.
 ```swift  
 var downloadConfig = defaultAppDownloadManager.downloadConfig(remoteUrl:url)
 ```
-- Track the progress and file status
+- Track the progress and file status by this handler.
 ```swift     
 defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fileState in
 }
@@ -108,16 +107,15 @@ defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fil
 defaultAppDownloadManager.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in
 }
 ```
-- all download:controlling button appearance if all depend if all downloaded or not. 
+- Download all: Controlling hidden of the button, depend if all downloaded or not. 
 ```swift     
 self.showDownload = !defaultAppDownloadManager.donwloadAllIsActive
 defaultAppDownloadManager.downloadAllIsActiveHandler = { value in
 self.showDownload = !value
 }
 ```
-
+**DownloadService**
 - DownloadService, used to download data only, without saving in files.
-
 ```swift
     var downloadService:DownloadService?
 
