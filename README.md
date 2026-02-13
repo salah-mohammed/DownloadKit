@@ -42,8 +42,7 @@ DownloadKit operates as a multi-layered system of services like a file processin
 pod 'DownloadKit',:git => "https://github.com/salah-mohammed/DownloadKit.git"
 ```
 
-# How used
-**FileDownloadService**
+# How use FileDownloadService
 
 * FileDownloadService, Downloads singular file and saves it to your path.
 ```swift
@@ -82,7 +81,7 @@ if let  url:URL = self.downloadService?.localFileUrl {
       }
 }
 ```
-**DownloadManager**
+# How use DownloadManager
 * DownloadManager, Downloads multiple files and saves them to your paths.
   
 1. Define your manager.
@@ -118,7 +117,7 @@ defaultAppDownloadManager.downloadAllIsActiveHandler = { value in
 self.showDownload = !value
 }
 ```
-**DownloadService**
+# How use DownloadService
 - DownloadService, used to download data only, without saving in files.
 ```swift
     var downloadService:DownloadService?
