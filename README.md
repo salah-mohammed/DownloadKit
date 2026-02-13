@@ -22,7 +22,8 @@ DownloadKit operates as a multi-layered system of services like a file processin
 * Enable to resume The Permanent suspension.
 * It is a Data management Library  support HTTP networking.
 * Support UIKit and SwiftUI.
-* You can develop a project with very clear code
+* You can develop a project with very clear code.
+* You can use BasicFileDownloadService for objective c.
   
 # Requirements
 * IOS 13+ 
