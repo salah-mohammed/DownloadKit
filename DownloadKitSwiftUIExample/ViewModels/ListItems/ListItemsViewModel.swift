@@ -5,6 +5,8 @@
 //  Created by SalahMohamed on 30/12/2022.
 //  Copyright © 2022 Salah. All rights reserved.
 //
+#if canImport(RealmSwift)
+
 import Foundation
 import DownloadKit
 typealias Action = ()->Void
@@ -15,15 +17,15 @@ class ListItemsViewModel:NSObject,ObservableObject{
 
     override init() {
         super.init();
-        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/001.mp3"))
-        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/002.mp3"))
-        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/003.mp3"))
-        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/004.mp3"))
-        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/005.mp3"))
-        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/006.mp3"))
-        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/007.mp3"))
-        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/008.mp3"))
-        list.append(url(stringUrl:"https://salahmohamed.website/Quran/MishariAlAfasi/009.mp3"))
+        list.append(url(stringUrl:"https://download.ourquraan.com/Mishary_Alafasy/001.mp3"))
+        list.append(url(stringUrl:"https://download.ourquraan.com/Mishary_Alafasy/002.mp3"))
+        list.append(url(stringUrl:"https://download.ourquraan.com/Mishary_Alafasy/003.mp3"))
+        list.append(url(stringUrl:"https://download.ourquraan.com/Mishary_Alafasy/004.mp3"))
+        list.append(url(stringUrl:"https://download.ourquraan.com/Mishary_Alafasy/005.mp3"))
+        list.append(url(stringUrl:"https://download.ourquraan.com/Mishary_Alafasy/006.mp3"))
+        list.append(url(stringUrl:"https://download.ourquraan.com/Mishary_Alafasy/007.mp3"))
+        list.append(url(stringUrl:"https://download.ourquraan.com/Mishary_Alafasy/008.mp3"))
+        list.append(url(stringUrl:"https://download.ourquraan.com/Mishary_Alafasy/009.mp3"))
 
     }
     func url(stringUrl:String)->SoundItemViewModel{
@@ -55,3 +57,4 @@ class ListItemsViewModel:NSObject,ObservableObject{
     }
     
 }
+#endif

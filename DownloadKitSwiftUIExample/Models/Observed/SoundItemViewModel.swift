@@ -6,10 +6,10 @@
 //  Copyright © 2022 Salah. All rights reserved.
 //
 import Foundation
-import DownloadKit
 import SwiftUI
 import MediaPlayer
-
+import DownloadKit
+#if canImport(RealmSwift)
 class SoundItemViewModel:NSObject,ObservableObject{
     
     func soundLocalFileUrl()->URL?{
@@ -62,3 +62,4 @@ class SoundItemViewModel:NSObject,ObservableObject{
     }
 
 }
+#endif

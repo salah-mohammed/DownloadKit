@@ -13,10 +13,13 @@ struct DownloadKitSwiftUIExampleApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                ContentView()
+#if canImport(RealmSwift)
+
+                ListItemsView()
                     .tabItem {
                             Label("Download List", systemImage: "house")
                            }
+#endif
                 FileDownloadServiceView()
                       .tabItem {
                           Label("File Download Service", systemImage: "person")

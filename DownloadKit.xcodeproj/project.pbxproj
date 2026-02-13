@@ -30,7 +30,6 @@
 		8B14C50B295F4835004E04F3 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14C50A295F4835004E04F3 /* CacheManager.swift */; };
 		8B3BAE3E2F3CB72700FC1B1C /* FileDownloadServiceExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BAE3C2F3CB72700FC1B1C /* FileDownloadServiceExampleViewController.swift */; };
 		8B3BAE3F2F3CB72700FC1B1C /* DownloadServiceExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BAE3B2F3CB72700FC1B1C /* DownloadServiceExampleViewController.swift */; };
-		8B3BAE452F3CC36D00FC1B1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BAE402F3CC36D00FC1B1C /* ContentView.swift */; };
 		8B3BAE462F3CC36D00FC1B1C /* ListItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BAE422F3CC36D00FC1B1C /* ListItemsViewModel.swift */; };
 		8B3BAE472F3CC36D00FC1B1C /* ListItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BAE412F3CC36D00FC1B1C /* ListItemsView.swift */; };
 		8B3BAE4B2F3CC3CC00FC1B1C /* FileDownloadServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BAE492F3CC3CC00FC1B1C /* FileDownloadServiceViewModel.swift */; };
@@ -40,6 +39,7 @@
 		8B534F1B28FF41E500EE0D2D /* BasicDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */; };
 		8B58EB4229BF3F1E00C577AD /* SoundItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58EB4129BF3F1E00C577AD /* SoundItemViewModel.swift */; };
 		8B7E6AE5290E5EFA0099CF72 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E6AE4290E5EFA0099CF72 /* Download.swift */; };
+		8BB0B2C82F3F2F1B00396575 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B2C72F3F2F1700396575 /* ListItemView.swift */; };
 		8BB9E2642913B87600CA151A /* ParentFileDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9E2632913B87600CA151A /* ParentFileDownloadService.swift */; };
 		8BB9E2662913B8AF00CA151A /* BasicFileDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9E2652913B8AF00CA151A /* BasicFileDownloadService.swift */; };
 		8BF04CB72906722900EAEEAB /* AppDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF04CB62906722900EAEEAB /* AppDownloadManager.swift */; };
@@ -116,7 +116,6 @@
 		8B14C50A295F4835004E04F3 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		8B3BAE3B2F3CB72700FC1B1C /* DownloadServiceExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceExampleViewController.swift; sourceTree = "<group>"; };
 		8B3BAE3C2F3CB72700FC1B1C /* FileDownloadServiceExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloadServiceExampleViewController.swift; sourceTree = "<group>"; };
-		8B3BAE402F3CC36D00FC1B1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B3BAE412F3CC36D00FC1B1C /* ListItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsView.swift; sourceTree = "<group>"; };
 		8B3BAE422F3CC36D00FC1B1C /* ListItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsViewModel.swift; sourceTree = "<group>"; };
 		8B3BAE482F3CC3CC00FC1B1C /* FileDownloadServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloadServiceView.swift; sourceTree = "<group>"; };
@@ -127,6 +126,7 @@
 		8B534F1A28FF41E500EE0D2D /* BasicDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDownloadManager.swift; sourceTree = "<group>"; };
 		8B58EB4129BF3F1E00C577AD /* SoundItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundItemViewModel.swift; sourceTree = "<group>"; };
 		8B7E6AE4290E5EFA0099CF72 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		8BB0B2C72F3F2F1700396575 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		8BB9E2632913B87600CA151A /* ParentFileDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentFileDownloadService.swift; sourceTree = "<group>"; };
 		8BB9E2652913B8AF00CA151A /* BasicFileDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicFileDownloadService.swift; sourceTree = "<group>"; };
 		8BF04CB62906722900EAEEAB /* AppDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDownloadManager.swift; sourceTree = "<group>"; };
@@ -258,7 +258,6 @@
 			children = (
 				8B3BAE522F3DE34700FC1B1C /* Info.plist */,
 				8B14C4EE295EE6FB004E04F3 /* DownloadKitSwiftUIExampleApp.swift */,
-				8B3BAE402F3CC36D00FC1B1C /* ContentView.swift */,
 				8B58EB4529BF40AA00C577AD /* UIComponents */,
 				8B3BAE442F3CC36D00FC1B1C /* ViewModels */,
 				8B58EB3F29BF3F1E00C577AD /* Models */,
@@ -290,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				8B3BAE412F3CC36D00FC1B1C /* ListItemsView.swift */,
+				8BB0B2C72F3F2F1700396575 /* ListItemView.swift */,
 				8B3BAE422F3CC36D00FC1B1C /* ListItemsViewModel.swift */,
 			);
 			path = ListItems;
@@ -389,7 +389,7 @@
 				4E23680F2503C08000977D7F /* Frameworks */,
 				4E2368102503C08000977D7F /* Resources */,
 				4E39B98028D367C200B76DF0 /* Embed Frameworks */,
-				36A86D26956AABB1DBBA0F03 /* [CP] Embed Pods Frameworks */,
+				9F7412A2B96BADB4525A2CD8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -410,7 +410,7 @@
 				8B14C4E9295EE6FA004E04F3 /* Frameworks */,
 				8B14C4EA295EE6FA004E04F3 /* Resources */,
 				8B14C505295EEEA1004E04F3 /* Embed Frameworks */,
-				3900DCB763411391F91A4807 /* [CP] Embed Pods Frameworks */,
+				D977A508787537B5F86EF04A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -494,48 +494,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		36A86D26956AABB1DBBA0F03 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3900DCB763411391F91A4807 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitSwiftUIExample/Pods-DownloadKitSwiftUIExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitSwiftUIExample/Pods-DownloadKitSwiftUIExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DownloadKitSwiftUIExample/Pods-DownloadKitSwiftUIExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		55E554B136E3BA01A7A6E566 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -578,6 +536,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F7412A2B96BADB4525A2CD8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DownloadKitExample/Pods-DownloadKitExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D977A508787537B5F86EF04A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitSwiftUIExample/Pods-DownloadKitSwiftUIExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DownloadKitSwiftUIExample/Pods-DownloadKitSwiftUIExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DownloadKitSwiftUIExample/Pods-DownloadKitSwiftUIExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E7336890CE2BB913BB1D66EF /* [CP] Check Pods Manifest.lock */ = {
@@ -640,11 +632,11 @@
 				8B14C4EF295EE6FB004E04F3 /* DownloadKitSwiftUIExampleApp.swift in Sources */,
 				8B14C4FE295EE7D5004E04F3 /* DonwloadButton.swift in Sources */,
 				8B3BAE4B2F3CC3CC00FC1B1C /* FileDownloadServiceViewModel.swift in Sources */,
+				8BB0B2C82F3F2F1B00396575 /* ListItemView.swift in Sources */,
 				8B3BAE502F3CC44300FC1B1C /* DownloadServiceView.swift in Sources */,
 				8B3BAE512F3CC44300FC1B1C /* DownloadServiceViewModel.swift in Sources */,
 				8B3BAE4C2F3CC3CC00FC1B1C /* FileDownloadServiceView.swift in Sources */,
 				8B58EB4229BF3F1E00C577AD /* SoundItemViewModel.swift in Sources */,
-				8B3BAE452F3CC36D00FC1B1C /* ContentView.swift in Sources */,
 				8B3BAE462F3CC36D00FC1B1C /* ListItemsViewModel.swift in Sources */,
 				8B3BAE472F3CC36D00FC1B1C /* ListItemsView.swift in Sources */,
 			);

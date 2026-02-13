@@ -9,6 +9,8 @@
 import Foundation
 import SwiftUI
 import DownloadKit
+#if canImport(RealmSwift)
+
 import RealmSwift
 import Realm
 struct DonwloadButton: View {
@@ -95,3 +97,4 @@ struct DonwloadButton: View {
     return view
     }
 }
+#endif
