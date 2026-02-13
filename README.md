@@ -17,18 +17,10 @@ DownloadKit operates as a multi-layered system of services like a file processin
 # Features
 
 * It is a Data management Library  support HTTP networking.
-* Data display management in UITableView and UICollectionView,In an easy and simple way and with the least possible code by GeneralKit tools.
-* Pagination by page number and offset.
 * Support UIKit and SwiftUI(WithExample).
-* Very clean code.
-* Tools to present data in UITableView and UICollectionView.
-* Placeholder for UITableView  and UICollectionView.
-* Single,Multi and Single Section selection  for UITableView  and UICollectionView.
-* Upload File / Data / Stream / MultipartFormData.
-* URL / JSON Parameter Encoding.
+* Very clean code, you don't need to think about logic code of downloading files.
+* Download Single and Multi files.
 * You can develop a project with very clear code
-* Swift Concurrency Support Back to iOS 13.
-* Simulate Remote Response by local file.
 
 
 # Requirements
