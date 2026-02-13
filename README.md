@@ -1,4 +1,4 @@
-ge# DownloadKit
+# DownloadKit
 
 DownloadKit operates as a multi-layered system of services like a file processing system, an individual download service, and a queue for group download services.
 
@@ -16,21 +16,15 @@ DownloadKit operates as a multi-layered system of services like a file processin
 
 # Features
 
-* It is a Data management Library  support HTTP networking.
-* Data display management in UITableView and UICollectionView,In an easy and simple way and with the least possible code by GeneralKit tools.
-* Pagination by page number and offset.
-* Support UIKit and SwiftUI(WithExample).
-* Very clean code.
-* Tools to present data in UITableView and UICollectionView.
-* Placeholder for UITableView  and UICollectionView.
-* Single,Multi and Single Section selection  for UITableView  and UICollectionView.
-* Upload File / Data / Stream / MultipartFormData.
-* URL / JSON Parameter Encoding.
-* You can develop a project with very clear code
-* Swift Concurrency Support Back to iOS 13.
-* Simulate Remote Response by local file.
-
-
+* Support UIKit and SwiftUI.
+* Download Single and Multi files.
+* Download all feature enable you to download all items in queue in order as automatically.
+* Very clean code, you don't need to think about logic code of downloading files.
+* Enable to resume The Permanent suspension.
+* You can use BasicFileDownloadService and BasicDownloadManager for objective c.
+* It is a Data management Library support HTTP networking.
+* You can develop a project with very clear code.
+  
 # Requirements
 * IOS 13+ 
 * Swift 5+
@@ -40,7 +34,15 @@ DownloadKit operates as a multi-layered system of services like a file processin
 # Pod install
 ```ruby
 pod 'DownloadKit',:git => "https://github.com/salah-mohammed/DownloadKit.git"
+#pod 'RealmSwift' optional if you want use AppDownloadManager or defaultAppDownloadManager.
 ```
+# How use 
+
+* Must adding relam, for use AppDownloadManager, contains advanced features for download multi files.
+* If you don't want to add relam,use DownloadManager.
+* BasicFileDownloadService and BasicDownloadManager for objective c.
+* FileDownloadService, use always if want save single file.
+* DownloadService, used to download data only, without saving in files.
 
 # How use FileDownloadService
 
@@ -110,7 +112,7 @@ defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fil
 defaultAppDownloadManager.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in
 }
 ```
-6. Download all: Controlling hidden of the button, depend if all downloaded or not. 
+6. Download All downloads all queued items sequentially and hides the button when completed.
 ```swift     
 self.showDownload = !defaultAppDownloadManager.donwloadAllIsActive
 defaultAppDownloadManager.downloadAllIsActiveHandler = { value in
