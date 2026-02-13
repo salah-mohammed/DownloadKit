@@ -38,11 +38,11 @@ pod 'DownloadKit',:git => "https://github.com/salah-mohammed/DownloadKit.git"
 ```
 # How use 
 
-BasicFileDownloadService and BasicDownloadManager for objective c.
-If you add relam,use AppDownloadManager contains advanced features.
-If you don't want to add relam,use DownloadManager.
-FileDownloadService you can use it always if whant save singular file.
-DownloadService, used to download data only, without saving in files.
+* BasicFileDownloadService and BasicDownloadManager for objective c.
+* If you add relam,use AppDownloadManager contains advanced features.
+* If you don't want to add relam,use DownloadManager.
+* FileDownloadService you can use it always if whant save singular file.
+* DownloadService, used to download data only, without saving in files.
 
 # How use FileDownloadService
 
