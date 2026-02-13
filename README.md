@@ -21,7 +21,7 @@ DownloadKit operates as a multi-layered system of services like a file processin
 * Very clean code, you don't need to think about logic code of downloading files.
 * Download Single and Multi files.
 * You can develop a project with very clear code
-
+* Download all feature enable you to download all items in queue in order as automatically.
 
 # Requirements
 * IOS 13+ 
@@ -102,7 +102,7 @@ defaultAppDownloadManager.downloadConfig(remoteUrl: url) { status, progress, fil
 defaultAppDownloadManager.downloadAction(remoteUrl: remoteUrl, localFile: object.localFile()) { status, progressValue, sessionTaskStatus in
 }
 ```
-6. Download all: Controlling hidden of the button, depend if all downloaded or not. 
+6. Download all feature enable you to download all items in queue in order as automatically, Controlling hidden of the button, depend if all downloaded or not. 
 ```swift     
 self.showDownload = !defaultAppDownloadManager.donwloadAllIsActive
 defaultAppDownloadManager.downloadAllIsActiveHandler = { value in
