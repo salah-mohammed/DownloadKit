@@ -93,8 +93,9 @@ var appDownloadManager = AppDownloadManager.init(featureName:"DownloadList")
 ```
 
 2. Add your remote file and local file destination to manager.
-```swift     
-defaultAppDownloadManager.addfileService(url, localFile: item.localFile())
+```swift
+let localefile = FileDownloadService.LocalFile.downloads(folderName:"Downloads/Audio/Mp3Folder",localefileName:"file_1",fileType:"mp3")  
+defaultAppDownloadManager.addfileService(url, localFile:localefile)
 ```
 3. Get download info, for your download file.
 ```swift  
