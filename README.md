@@ -21,7 +21,7 @@ DownloadKit operates as a multi-layered system of services like a file processin
 * Download all feature enable you to download all items in queue in order as automatically.
 * Very clean code, you don't need to think about logic code of downloading files.
 * Enable to resume The Permanent suspension.
-* You can use BasicFileDownloadService for objective c.
+* You can use BasicFileDownloadService and BasicDownloadManager for objective c.
 * It is a Data management Library support HTTP networking.
 * You can develop a project with very clear code.
   
