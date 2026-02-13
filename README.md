@@ -38,10 +38,10 @@ pod 'DownloadKit',:git => "https://github.com/salah-mohammed/DownloadKit.git"
 ```
 # How use 
 
-* AppDownloadManager contains advanced features to download multi files but you must install realm.
-* BasicFileDownloadService and BasicDownloadManager for objective c.
+* Must adding relam, for use AppDownloadManager, contains advanced features for download multi files.
 * If you don't want to add relam,use DownloadManager.
-* FileDownloadService you can use it always if whant save singular file.
+* BasicFileDownloadService and BasicDownloadManager for objective c.
+* FileDownloadService, use always if want save single file.
 * DownloadService, used to download data only, without saving in files.
 
 # How use FileDownloadService
