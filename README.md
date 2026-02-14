@@ -34,7 +34,7 @@ DownloadKit operates as a multi-layered system of services like a file processin
 # Pod install
 ```ruby
 pod 'DownloadKit',:git => "https://github.com/salah-mohammed/DownloadKit.git"
-#pod 'RealmSwift' optional if you want use AppDownloadManager or defaultAppDownloadManager.
+pod 'RealmSwift' #optional if you want use AppDownloadManager or defaultAppDownloadManager.
 ```
 # How use 
 
