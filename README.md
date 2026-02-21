@@ -38,7 +38,7 @@ pod 'RealmSwift' #optional if you want use AppDownloadManager or defaultAppDownl
 ```
 # How use 
 
-* Must adding relam, for use AppDownloadManager, contains advanced features for download multi files.
+* Must adding relam, for use AppDownloadManager for swift and BasicDownloadManager for OBJC, contains advanced features for download multi files.
 * If you don't want to add relam,use DownloadManager.
 * BasicFileDownloadService and BasicDownloadManager for objective c.
 * FileDownloadService, use always if want save single file.
