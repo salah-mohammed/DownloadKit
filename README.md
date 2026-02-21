@@ -84,7 +84,7 @@ if let  url:URL = self.downloadService?.localFileUrl {
 }
 ```
 # How use AppDownloadManager
-* Must install realm or use DownloadManager,AppDownloadManager, Downloads multiple files and saves them to your paths.
+* Must install realm, Downloads multiple files and saves them to your paths.
   
 1. Define your manager.
 ```swift
