@@ -15,13 +15,15 @@ DownloadKit operates as a multi-layered system of services like a file processin
 > **DownloadKit** gives you a clean, reusable, and lightning-fast way to singlular download and Mass download  — so you can focus on building features that matter.
 
 # Features
-* Playlists
-* Gameplay background music
-* Sound effects
-* Quran playlists
-* Video playback
-* Audio recording
-  
+
+* Support UIKit and SwiftUI.
+* Download Single and Multi files.
+* Download all feature enable you to download all items in queue in order as automatically.
+* Very clean code, you don't need to think about logic code of downloading files.
+* Enable to resume The Permanent suspension.
+* You can use BasicFileDownloadService and BasicDownloadManager for objective c.
+* It is a Data management Library support HTTP networking.
+* You can develop a project with very clear code.
   
 # Requirements
 * IOS 13+ 
